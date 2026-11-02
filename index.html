@@ -33,6 +33,7 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0}
+main,footer{overflow-x:clip}
 #sobre{overflow-x:clip}
 [hidden]{display:none!important}
 img{height:auto}
@@ -515,6 +516,8 @@ footer small{color:var(--tinta-2);font-size:.85rem}
 .s-avatar.arrastando{cursor:grabbing}
 @media (max-width:700px){.s-avatar{width:96px;left:auto;top:auto}}
 /* ================= Animações e interatividade DIGAS ================= */
+.pre-anim .entrada .prancha>*:not(.p-onda),.pre-anim .botoes-mobile{opacity:0}
+.entrada .prancha>*,.botoes-mobile{transition:opacity .25s}
 @media (prefers-reduced-motion: no-preference){
   /* --- Capa: entrada --- */
   .js-anim .p-grafismo{animation:a-desliza 1s cubic-bezier(.2,.8,.2,1) both}
@@ -598,11 +601,11 @@ footer small{color:var(--tinta-2);font-size:.85rem}
   <section id="sobre-mim" class="sobre2" aria-label="Sobre mim">
     <div class="prancha2">
       <svg class="s-ondas" viewBox="0 0 1920 1280" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 L1920 0  L1919 1157 L1880 1140 L1840 1121 L1800 1103 L1760 1085 L1720 1068 L1680 1051 L1640 1035 L1600 1019 L1560 1004 L1520 989 L1480 976 L1440 962 L1400 951 L1360 940 L1320 931 L1280 923 L1240 917 L1200 913 L1160 912 L1120 913 L1080 916 L1040 923 L1000 933 L960 947 L920 963 L880 983 L840 1005 L800 1029 L760 1055 L720 1081 L680 1107 L640 1133 L600 1158 L560 1181 L520 1202 L480 1220 L440 1236 L400 1247 L360 1257 L320 1263 L280 1268 L240 1271 L200 1271 L160 1270 L120 1273 L80 1269 L0 1272 Z" fill="#E7191F"/><path d="M0 1272 L80 1269 L120 1273 L160 1270 L200 1271 L240 1271 L280 1268 L320 1263 L360 1257 L400 1247 L440 1236 L480 1220 L520 1202 L560 1181 L600 1158 L640 1133 L680 1107 L720 1081 L760 1055 L800 1029 L840 1005 L880 983 L920 963 L960 947 L1000 933 L1040 923 L1080 916 L1120 913 L1160 912 L1200 913 L1240 917 L1280 923 L1320 931 L1360 940 L1400 951 L1440 962 L1480 976 L1520 989 L1560 1004 L1600 1019 L1640 1035 L1680 1051 L1720 1068 L1760 1085 L1800 1103 L1840 1121 L1880 1140 L1919 1157 L1919 1295 L1880 1277 L1840 1258 L1800 1241 L1760 1223 L1720 1205 L1680 1188 L1640 1172 L1600 1156 L1560 1140 L1520 1126 L1480 1112 L1440 1099 L1400 1086 L1360 1075 L1320 1065 L1280 1058 L1240 1051 L1200 1047 L1160 1044 L1120 1045 L1080 1048 L1040 1054 L1000 1063 L960 1076 L920 1091 L880 1111 L840 1133 L800 1156 L760 1181 L720 1207 L680 1233 L640 1259 L600 1285 L560 1308 L520 1330 L480 1349 L440 1365 L400 1378 L360 1388 L320 1395 L280 1400 L240 1403 L200 1404 L160 1403 L120 1401 L80 1397 L0 1392 Z" fill="#6B3A12"/><path d="M0 1392 L80 1397 L120 1401 L160 1403 L200 1404 L240 1403 L280 1400 L320 1395 L360 1388 L400 1378 L440 1365 L480 1349 L520 1330 L560 1308 L600 1285 L640 1259 L680 1233 L720 1207 L760 1181 L800 1156 L840 1133 L880 1111 L920 1091 L960 1076 L1000 1063 L1040 1054 L1080 1048 L1120 1045 L1160 1044 L1200 1047 L1240 1051 L1280 1058 L1320 1065 L1360 1075 L1400 1086 L1440 1099 L1480 1112 L1520 1126 L1560 1140 L1600 1156 L1640 1172 L1680 1188 L1720 1205 L1760 1223 L1800 1241 L1840 1258 L1880 1277 L1919 1295 L1919 1431 L1880 1413 L1840 1395 L1800 1377 L1760 1359 L1720 1342 L1680 1325 L1640 1308 L1600 1293 L1560 1278 L1520 1263 L1480 1250 L1440 1236 L1400 1225 L1360 1214 L1320 1205 L1280 1197 L1240 1191 L1200 1188 L1160 1186 L1120 1188 L1080 1192 L1040 1199 L1000 1209 L960 1223 L920 1240 L880 1260 L840 1282 L800 1306 L760 1332 L720 1358 L680 1385 L640 1410 L600 1435 L560 1458 L520 1479 L480 1497 L440 1511 L400 1523 L360 1533 L320 1539 L280 1543 L240 1546 L200 1546 L160 1545 L120 1542 L80 1537 L0 1532 Z" fill="#5B993E"/></svg>
-      <img class="s-gua-cont" src="img/guarana-g2.webp" alt="" width="700" height="700">
-      <img class="s-foto" src="img/foto-fone-original.webp" alt="Diego Fernando com fones de ouvido">
-      <img class="s-gua-dir" src="img/guarana-g3.webp" alt="" width="700" height="700">
-      <img class="s-folhas" src="img/coroa-folhas.webp" alt="" width="960" height="919">
-      <div class="s-card s-bio"><img class="s-foto-mob" src="img/foto-fone-original.webp" alt=""></div>
+      <img class="s-gua-cont" src="img/guarana-g2.webp" alt="" width="700" height="700" loading="lazy">
+      <img class="s-foto" src="img/foto-fone-original.webp" alt="Diego Fernando com fones de ouvido" loading="lazy">
+      <img class="s-gua-dir" src="img/guarana-g3.webp" alt="" width="700" height="700" loading="lazy">
+      <img class="s-folhas" src="img/coroa-folhas.webp" alt="" width="960" height="919" loading="lazy">
+      <div class="s-card s-bio"><img class="s-foto-mob" src="img/foto-fone-original.webp" alt="" loading="lazy"></div>
       <p class="s-texto">Sou <strong>Diego Fernando</strong>, atuo na Secretaria Municipal de Saúde, com<br class="q"> habilidades nas áreas de Comunicação, Design e Tecnologia. Possuo<br class="q"> experiência em produção audiovisual, fotografia, captação e edição de<br class="q"> vídeos, criação de peças gráficas e desenvolvimento de soluções digitais,<br class="q"> unindo criatividade, conhecimento técnico e inovação para transformar<br class="q"> ideias em comunicação visual e conteúdo de qualidade.</p>
       <div class="s-card s-idade"></div>
       <div class="s-card s-avcard"></div>
@@ -627,12 +630,12 @@ footer small{color:var(--tinta-2);font-size:.85rem}
       <img class="m-img m-mulher" src="img/m-retrato-canva.webp" alt="Mulher amazonense com pintura de grafismos segurando um cacho de guaraná numa plantação" loading="lazy">
       <div class="m-esmaece" aria-hidden="true"></div>
       <p class="m-legenda">Imagem ilustrativa gerada por IA</p>
-      <img class="m-img m-folhas-cont" src="img/coroa-folhas.webp" alt="" width="960" height="919">
+      <img class="m-img m-folhas-cont" src="img/coroa-folhas.webp" alt="" width="960" height="919" loading="lazy">
       <img class="m-img m-folhas-dir" src="img/m-folhas-dir.webp" alt="" width="244" height="363" loading="lazy">
       <img class="m-img m-folhas-esq" src="img/m-folhas-esq.webp" alt="" width="170" height="350" loading="lazy">
-      <h2 class="m-titulos modelo-acessivel">Sou filho da Terra do Guaraná — Maués, Amazonas</h2><img class="m-title-art" src="img/m-titulo-canva.png" alt=""><p class="m-amaz-original" aria-hidden="true">AMAZONAS</p>
+      <h2 class="m-titulos modelo-acessivel">Sou filho da Terra do Guaraná — Maués, Amazonas</h2><img class="m-title-art" src="img/m-titulo-canva.png" alt="" loading="lazy"><p class="m-amaz-original" aria-hidden="true">AMAZONAS</p>
       
-      <div class="m-caixa m-caixa-verde" aria-hidden="true"></div><img class="m-foreground-original" src="img/m-retrato-frente-limpo.webp" alt="" aria-hidden="true">
+      <div class="m-caixa m-caixa-verde" aria-hidden="true"></div><img class="m-foreground-original" src="img/m-retrato-frente-limpo.webp" alt="" aria-hidden="true" loading="lazy">
       <p class="m-txt m-p1"><span class="ln">No interior do Amazonas, às</span> <span class="ln">margens do rio Maués-Açu,</span> <span class="ln">Maués reúne paisagens de rios,</span> <span class="ln">florestas e praias de água doce</span> <span class="ln">que aparecem durante a</span> <span class="ln">vazante. O ritmo das águas</span> <span class="ln">transforma seus cenários e faz</span> <span class="ln">parte do cotidiano de quem</span> <span class="ln">vive na cidade.</span></p>
       <img class="m-img m-praca" src="img/m-praca-original.webp" alt="Praça de Maués com piso pintado com grafismos, vista do alto ao pôr do sol" loading="lazy">
       <div class="m-caixa m-caixa-creme" aria-hidden="true"></div>
@@ -726,7 +729,16 @@ footer small{color:var(--tinta-2);font-size:.85rem}
   var t=document.querySelector('.p-titulo');
   if(t&&!t.querySelector('.l')){var txt=t.textContent;t.setAttribute('aria-label',txt);t.innerHTML=[...txt].map(function(c,i){return '<span class="l" aria-hidden="true" style="--i:'+i+'">'+c+'</span>'}).join('');}
   document.querySelectorAll('.p-botoes>*,.botoes-mobile>*').forEach(function(b,i){b.style.setProperty('--i',i%3)});
-  if(!reduz) document.documentElement.classList.add('js-anim');
+  // só anima a capa quando as imagens dela já chegaram (evita elementos "quebrados" na internet lenta)
+  if(!reduz){
+    var raiz=document.documentElement; raiz.classList.add('pre-anim');
+    var imgsCapa=[].slice.call(document.querySelectorAll('.entrada img'));
+    var faltam=imgsCapa.filter(function(i){return !(i.complete&&i.naturalWidth)}).length, foi=false;
+    function comeca(){ if(foi) return; foi=true; raiz.classList.remove('pre-anim'); raiz.classList.add('js-anim'); }
+    if(!faltam) comeca();
+    imgsCapa.forEach(function(i){ if(!(i.complete&&i.naturalWidth)){ var ok=function(){ if(--faltam<=0) comeca(); }; i.addEventListener('load',ok); i.addEventListener('error',ok); } });
+    setTimeout(comeca,2500);
+  }
 
   // botões em preparação
   document.querySelectorAll('.p-botoes>[aria-disabled],.botoes-mobile>[aria-disabled]').forEach(function(b){
