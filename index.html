@@ -576,6 +576,168 @@ footer small{color:var(--tinta-2);font-size:.85rem}
 @keyframes a-pulo{40%{translate:0 -18%;scale:1.1}}
 @keyframes a-treme{20%{rotate:-3deg}40%{rotate:3deg}60%{rotate:-2deg}80%{rotate:1deg}}
 @keyframes a-respira{50%{scale:1.02}}
+
+/* ================= Módulo Serviços (DIGAS) ================= */
+#mod-serv{
+  --vermelho:#E7191F; --botao:#E82D08; --creme:#FCE5BF; --creme-2:#F4D7A8;
+  --verde:#5B993E; --marrom:#6B3A12; --marrom-2:#8A5A2B;
+  --f-marca:"Adumu","Anton",Impact,sans-serif; --f-corpo:"Poppins",system-ui,sans-serif;
+  color-scheme:light;
+}
+#mod-serv{background:var(--vermelho);color:var(--marrom);font-family:var(--f-corpo);overflow-x:clip}
+#mod-serv .sv-tela{position:relative;min-height:100vh;padding:56px max(16px,env(safe-area-inset-right,0px)) 72px max(16px,env(safe-area-inset-left,0px));overflow:hidden;isolation:isolate}
+#mod-serv .sv-tela[hidden]{display:none}
+#mod-serv .sv-onda-topo{position:absolute;inset:0 0 auto;height:90px;z-index:-1}
+#mod-serv .sv-gua{position:absolute;pointer-events:none;z-index:0;height:auto}
+#mod-serv .sv-gua.sv-a{right:-70px;top:-50px;width:min(300px,30vw)}
+#mod-serv .sv-gua.sv-b{left:-90px;bottom:-60px;width:min(320px,32vw);transform:rotate(180deg)}
+#mod-serv .sv-folha{position:absolute;right:-180px;bottom:-200px;width:min(520px,48vw);z-index:0;pointer-events:none;opacity:.95}
+#mod-serv .sv-miolo{position:relative;z-index:1;max-width:1180px;margin:0 auto}
+#mod-serv .sv-card{background:var(--creme);border-radius:clamp(20px,2.4vw,36px)}
+#mod-serv h1,#mod-serv h2,#mod-serv h3{font-family:var(--f-marca);font-weight:400;color:var(--verde);margin:0;line-height:.95;text-wrap:balance}/* ---------- Entrada ---------- */
+#mod-serv .sv-titulo-ent{padding:clamp(22px,3vw,40px);text-align:center;margin-bottom:22px}
+#mod-serv .sv-titulo-ent small{display:block;font:700 clamp(.95rem,1.4vw,1.25rem)/1.2 var(--f-corpo);color:var(--marrom);margin-bottom:8px}
+#mod-serv .sv-titulo-ent h1{font-size:clamp(2.4rem,6.4vw,5.6rem)}
+#mod-serv .sv-areas{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+#mod-serv .sv-area{all:unset;box-sizing:border-box;cursor:pointer;background:var(--creme);border-radius:clamp(20px,2.4vw,32px);padding:18px 16px 22px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;transition:translate .25s cubic-bezier(.3,1.6,.5,1),box-shadow .25s}
+#mod-serv .sv-area:hover,#mod-serv .sv-area:focus-visible{translate:0 -8px;box-shadow:0 10px 0 rgba(107,58,18,.28)}
+#mod-serv .sv-area:focus-visible{outline:3px solid var(--marrom);outline-offset:3px}
+#mod-serv .sv-area .sv-obj{width:100%;aspect-ratio:1.25;display:grid;place-items:center}
+#mod-serv .sv-area .sv-obj img{width:92%;height:auto;transition:scale .3s cubic-bezier(.3,1.6,.5,1),rotate .3s}
+#mod-serv .sv-area:hover .sv-obj img{scale:1.08;rotate:-4deg}
+#mod-serv .sv-area .sv-falta{width:78%;aspect-ratio:1.25;border:3px dashed var(--marrom-2);border-radius:18px;display:grid;place-items:center;font:600 .82rem/1.3 var(--f-corpo);color:var(--marrom-2);padding:8px}
+#mod-serv .sv-area h3{font-size:clamp(1.3rem,2.1vw,1.9rem)}
+#mod-serv .sv-area span{font:500 .92rem/1.35 var(--f-corpo)}
+#mod-serv .sv-area .sv-em-breve{font:700 .74rem var(--f-corpo);letter-spacing:.06em;text-transform:uppercase;background:var(--creme-2);padding:3px 10px;border-radius:999px}/* ---------- Fotografia ---------- */
+#mod-serv .sv-barra{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+#mod-serv .sv-barra button{all:unset;cursor:pointer;background:var(--creme);color:var(--marrom);font:700 .95rem var(--f-corpo);padding:10px 18px;border-radius:999px;transition:translate .2s}
+#mod-serv .sv-barra button:hover{translate:0 -3px}
+#mod-serv .sv-barra button:focus-visible{outline:3px solid var(--creme);outline-offset:3px}
+#mod-serv .sv-apresenta{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(16px,3vw,40px);align-items:center;padding:clamp(18px,3vw,40px)}
+#mod-serv .sv-giro{position:relative;cursor:grab;touch-action:pan-y;user-select:none}
+#mod-serv .sv-giro.sv-arrastando{cursor:grabbing}
+#mod-serv .sv-giro img{display:block;width:100%;height:auto;-webkit-user-drag:none}
+#mod-serv .sv-giro .sv-dica{display:block;text-align:center;margin-top:8px;font:600 .78rem var(--f-corpo);color:var(--marrom-2);white-space:nowrap}
+#mod-serv h1:focus{outline:none}
+#mod-serv .sv-apresenta h1{font-size:clamp(3rem,7vw,6.2rem);text-transform:uppercase}
+#mod-serv .sv-apresenta p{font:600 clamp(1rem,1.35vw,1.2rem)/1.55 var(--f-corpo);margin:14px 0 18px;max-width:46ch}
+#mod-serv .sv-specs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px;padding:0;list-style:none}
+#mod-serv .sv-specs li{background:var(--verde);color:var(--creme);font:700 .88rem var(--f-corpo);padding:6px 12px;border-radius:999px}
+#mod-serv .sv-equip{font:600 .85rem var(--f-corpo);color:var(--marrom-2);margin:0 0 20px}
+#mod-serv .sv-equip b{color:var(--marrom)}
+#mod-serv .sv-acoes{display:flex;flex-wrap:wrap;gap:10px}
+#mod-serv .sv-btn{all:unset;cursor:pointer;font:700 1rem var(--f-corpo);padding:13px 22px;border-radius:14px;transition:translate .2s,box-shadow .2s;text-align:center}
+#mod-serv .sv-btn.sv-verm{background:var(--botao);color:var(--creme)}
+#mod-serv .sv-btn.sv-cont{background:transparent;color:var(--marrom);box-shadow:inset 0 0 0 3px var(--marrom)}
+#mod-serv .sv-btn:hover{translate:0 -3px;box-shadow:0 6px 0 rgba(107,58,18,.3)}
+#mod-serv .sv-btn.sv-cont:hover{box-shadow:inset 0 0 0 3px var(--marrom),0 6px 0 rgba(107,58,18,.3)}
+#mod-serv .sv-btn:focus-visible{outline:3px solid var(--marrom);outline-offset:3px}
+#mod-serv .sv-faixa{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+#mod-serv .sv-foto{margin:0;padding:10px 10px 12px}
+#mod-serv .sv-foto .sv-vaga{aspect-ratio:4/3;border:3px dashed var(--marrom-2);border-radius:14px;display:grid;place-items:center;text-align:center;font:600 .82rem/1.3 var(--f-corpo);color:var(--marrom-2);padding:8px;background:var(--creme-2)}
+#mod-serv .sv-foto figcaption{font:700 .95rem var(--f-corpo);text-align:center;margin-top:8px}
+#mod-serv .sv-contato{display:flex;justify-content:center;margin-top:22px}
+#mod-serv .sv-contato .sv-btn{background:var(--creme);color:var(--botao);font-size:1.1rem;padding:15px 28px}@media (max-width:820px){
+#mod-serv .sv-areas{grid-template-columns:1fr 1fr;gap:12px}
+#mod-serv .sv-apresenta{grid-template-columns:1fr}
+#mod-serv .sv-faixa{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:6px}
+#mod-serv .sv-faixa .sv-foto{flex:0 0 72%;scroll-snap-align:start}
+#mod-serv .sv-acoes .sv-btn{flex:1 1 100%}
+#mod-serv .sv-gua.sv-a{width:150px;right:-50px;top:-30px}
+#mod-serv .sv-gua.sv-b{width:160px}
+#mod-serv .sv-folha{width:280px;right:-120px;bottom:-130px}}/* ---------- fotos reais ---------- */
+#mod-serv .sv-foto .sv-real,#mod-serv .sv-tipo .sv-real{height:auto}
+#mod-serv .sv-foto .sv-real{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 50%;border-radius:14px;cursor:zoom-in}
+#mod-serv .sv-ver-mais{all:unset;cursor:pointer;display:grid;place-items:center;text-align:center;font:700 1rem/1.3 var(--f-corpo);color:var(--marrom)}
+#mod-serv a.sv-btn{text-decoration:none}/* ---------- Galeria ---------- */
+#mod-serv .sv-cab{padding:clamp(18px,3vw,36px);margin-bottom:16px}
+#mod-serv .sv-cab small{display:block;font:700 .95rem var(--f-corpo);margin-bottom:6px}
+#mod-serv .sv-cab h1{font-size:clamp(2.4rem,6vw,5rem);text-transform:uppercase}
+#mod-serv .sv-cab p{font:600 clamp(.98rem,1.3vw,1.15rem)/1.5 var(--f-corpo);margin:12px 0 0;max-width:60ch}
+#mod-serv .sv-filtros{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+#mod-serv .sv-filtros button{all:unset;cursor:pointer;font:700 .9rem var(--f-corpo);padding:7px 14px;border-radius:999px;color:var(--marrom);box-shadow:inset 0 0 0 2px var(--marrom)}
+#mod-serv .sv-filtros button[aria-pressed="true"]{background:var(--verde);color:var(--creme);box-shadow:none}
+#mod-serv .sv-filtros button:focus-visible{outline:3px solid var(--marrom);outline-offset:2px}
+#mod-serv .sv-grade{columns:3 260px;column-gap:14px}
+#mod-serv .sv-grade .sv-item{break-inside:avoid;margin:0 0 14px;padding:10px 10px 12px}
+#mod-serv .sv-grade .sv-item[hidden]{display:none}
+#mod-serv .sv-grade .sv-item img{display:block;width:100%;height:auto;border-radius:14px;cursor:zoom-in}
+#mod-serv .sv-grade .sv-item .sv-vaga{aspect-ratio:4/5;border:3px dashed var(--marrom-2);border-radius:14px;display:grid;place-items:center;text-align:center;font:600 .82rem/1.3 var(--f-corpo);color:var(--marrom-2);background:var(--creme-2);padding:8px}
+#mod-serv .sv-grade .sv-item:nth-child(3n) .sv-vaga{aspect-ratio:4/3}
+#mod-serv .sv-grade figcaption{font:700 .9rem var(--f-corpo);margin-top:8px;display:flex;justify-content:space-between;gap:8px}
+#mod-serv .sv-grade figcaption em{font-style:normal;font-weight:600;color:var(--marrom-2)}
+#mod-serv .sv-lb{border:0;padding:0;background:transparent;max-width:min(92vw,900px);max-height:92vh}
+#mod-serv .sv-lb::backdrop{background:rgba(40,16,4,.86)}
+#mod-serv .sv-lb img{display:block;max-width:100%;max-height:86vh;border-radius:18px}
+#mod-serv .sv-lb button{all:unset;cursor:pointer;position:absolute;top:10px;right:10px;background:var(--creme);color:var(--marrom);font:800 1rem var(--f-corpo);width:40px;height:40px;border-radius:50%;display:grid;place-items:center}/* ---------- Serviços de fotografia ---------- */
+#mod-serv .sv-tipos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+#mod-serv .sv-tipo{padding:12px 12px 20px;display:flex;flex-direction:column}
+#mod-serv .sv-tipo .sv-real,#mod-serv .sv-tipo .sv-vaga{display:block;width:100%;aspect-ratio:4/3;border-radius:16px;object-fit:cover}
+#mod-serv .sv-tipo .sv-vaga{border:3px dashed var(--marrom-2);display:grid;place-items:center;text-align:center;font:600 .82rem/1.3 var(--f-corpo);color:var(--marrom-2);background:var(--creme-2)}
+#mod-serv .sv-tipo h2{font-size:clamp(1.8rem,2.8vw,2.6rem);margin:14px 6px 6px}
+#mod-serv .sv-tipo p{font:600 .98rem/1.5 var(--f-corpo);margin:0 6px 10px}
+#mod-serv .sv-tipo ul{margin:0 6px 16px;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+#mod-serv .sv-tipo li{background:var(--creme-2);font:600 .82rem var(--f-corpo);padding:4px 10px;border-radius:999px}
+#mod-serv .sv-tipo .sv-btn{margin:auto 6px 0}
+#mod-serv .sv-passos{margin-top:16px;padding:clamp(18px,3vw,32px)}
+#mod-serv .sv-passos h2{font-size:clamp(1.8rem,3.4vw,3rem);margin-bottom:14px}
+#mod-serv .sv-passos ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:p}
+#mod-serv .sv-passos li{counter-increment:p;background:var(--creme-2);border-radius:18px;padding:16px;font:600 .95rem/1.45 var(--f-corpo)}
+#mod-serv .sv-passos li::before{content:counter(p);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--verde);color:var(--creme);font:400 1.3rem var(--f-marca);margin-bottom:8px}
+#mod-serv .sv-passos li b{display:block;font-size:1.05rem;margin-bottom:2px}
+#mod-serv .sv-nota{font:600 .9rem var(--f-corpo);color:var(--creme);text-align:center;margin:14px 0 0}@media (max-width:820px){
+#mod-serv .sv-tipos{grid-template-columns:1fr}
+#mod-serv .sv-passos ol{grid-template-columns:1fr}
+#mod-serv .sv-grade{columns:2 140px;column-gap:10px}
+#mod-serv .sv-grade .sv-item{padding:6px 6px 8px;margin-bottom:10px}
+#mod-serv .sv-grade figcaption{flex-direction:column;gap:0;font-size:.82rem}}/* ---------- Audiovisual ---------- */
+#mod-serv .sv-obj-falta{aspect-ratio:640/459;border:3px dashed var(--marrom-2);border-radius:22px;display:grid;place-items:center;text-align:center;font:600 .95rem/1.4 var(--f-corpo);color:var(--marrom-2);background:var(--creme-2)}
+#mod-serv .sv-video .sv-vaga,#mod-serv .sv-vitem .sv-vaga{aspect-ratio:16/9;position:relative}
+#mod-serv .sv-vitem.sv-vert .sv-vaga{aspect-ratio:9/16}
+#mod-serv .sv-grade .sv-item.sv-vitem .sv-vaga{aspect-ratio:16/9}
+#mod-serv .sv-grade .sv-item.sv-vitem.sv-vert .sv-vaga{aspect-ratio:9/16}
+#mod-serv .sv-play{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--botao);color:var(--creme);font-size:1.1rem;margin:0 auto 6px;padding-left:3px}
+#mod-serv .sv-tipos.sv-q4{grid-template-columns:repeat(2,1fr)}
+#mod-serv .sv-tipo .sv-vaga.sv-v{aspect-ratio:16/9}
+#mod-serv .sv-passos ol.sv-q4{grid-template-columns:repeat(4,1fr)}@media (max-width:820px){
+#mod-serv .sv-tipos.sv-q4{grid-template-columns:1fr}
+#mod-serv .sv-passos ol.sv-q4{grid-template-columns:1fr}}/* ---------- Design e Sites ---------- */
+#mod-serv .sv-foto .sv-vaga.sv-q{aspect-ratio:4/5}
+#mod-serv .sv-grade .sv-item.sv-ditem .sv-vaga{aspect-ratio:4/5}
+#mod-serv .sv-grade .sv-item.sv-ditem.sv-sq .sv-vaga{aspect-ratio:1}
+#mod-serv .sv-grade .sv-item.sv-ditem.sv-lg .sv-vaga{aspect-ratio:4/3}
+#mod-serv .sv-nav-falso{display:flex;gap:5px;padding:7px 9px;background:var(--marrom);border-radius:12px 12px 0 0}
+#mod-serv .sv-nav-falso i{width:9px;height:9px;border-radius:50%;background:var(--creme-2)}
+#mod-serv .sv-grade .sv-item.sv-sitem .sv-vaga,#mod-serv .sv-foto.sv-site .sv-vaga,#mod-serv .sv-tipo .sv-vaga.sv-s{aspect-ratio:16/10;border-radius:0 0 14px 14px;border-top:0}
+#mod-serv .sv-tipo .sv-vaga.sv-d{aspect-ratio:4/3}/* ---------- revisão: espaços reservados, selos, versão pública ---------- */
+#mod-serv .sv-vaga{position:relative}
+#mod-serv .sv-vaga::after{content:"Espaço reservado";position:absolute;top:8px;left:8px;font:700 .64rem/1 var(--f-corpo);letter-spacing:.05em;text-transform:uppercase;background:var(--marrom);color:var(--creme);padding:4px 7px;border-radius:999px}
+#mod-serv .sv-obj-falta,#mod-serv .sv-area .sv-falta{position:relative}
+#mod-serv .sv-selo{align-self:flex-start;margin:14px 6px -6px;background:var(--verde);color:var(--creme);font:700 .72rem var(--f-corpo);letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+#mod-serv .sv-tipo .sv-ex{display:block;margin:0 6px 6px;font:700 .72rem var(--f-corpo);letter-spacing:.05em;text-transform:uppercase;color:var(--marrom-2)}
+#mod-serv .sv-vazio{display:none;padding:28px;text-align:center;font:700 1.05rem var(--f-corpo)}
+#mod-serv.sv-publico .sv-foto:has(.sv-vaga),#mod-serv.sv-publico .sv-grade .sv-item:has(.sv-vaga),#mod-serv.sv-publico .sv-tipo .sv-vaga,#mod-serv.sv-publico .sv-tipo .sv-nav-falso{display:none}
+#mod-serv.sv-publico .sv-faixa.sv-sem-real{display:none}
+#mod-serv.sv-publico .sv-grade.sv-sem-real + .sv-vazio{display:block}
+#mod-serv.sv-publico .sv-filtros{display:none}/* ---------- rodada de ajustes 2 ---------- */
+#mod-serv .sv-folha{z-index:0}
+#mod-serv .sv-tela:has(> .sv-folha){padding-bottom:clamp(190px,16vw,240px)}@media (min-width:821px){
+#mod-serv .sv-folha{width:min(400px,30vw);right:-120px;bottom:-140px}}
+#mod-serv.sv-publico .sv-tipos{align-items:start}
+#mod-serv.sv-publico .sv-tipo .sv-btn{margin-top:4px}
+#mod-serv.sv-publico .sv-tipo .sv-selo{margin-top:16px}@media (max-width:820px){
+#mod-serv .sv-apresenta .sv-giro{margin-bottom:6px}
+#mod-serv .sv-tela:has(> .sv-folha){padding-bottom:190px}
+#mod-serv .sv-folha{bottom:-120px}
+#mod-serv .sv-tipo .sv-vaga,#mod-serv .sv-tipo .sv-vaga.sv-d,#mod-serv .sv-tipo .sv-vaga.sv-s,#mod-serv .sv-tipo .sv-vaga.sv-v{aspect-ratio:2/1}}@media (prefers-reduced-motion:reduce){}
+/* versão pública: só o que é real */
+#mod-serv{display:block;min-height:100vh}
+#mod-serv[hidden]{display:none!important}
+#mod-serv.sv-publico .sv-obj-falta,#mod-serv.sv-publico .sv-area .sv-falta{display:none}
+#mod-serv.sv-publico .sv-apresenta:not(:has(.sv-giro)){grid-template-columns:1fr}
+#mod-serv.sv-publico .sv-area{justify-content:center;min-height:170px}
+@media (min-width:821px){#mod-serv.sv-publico .sv-faixa:not(.sv-sem-real){display:flex;justify-content:center}#mod-serv.sv-publico .sv-faixa .sv-foto{flex:0 1 calc(25% - 11px)}}
+
 </style>
 
 
@@ -594,9 +756,9 @@ footer small{color:var(--tinta-2);font-size:.85rem}
       <img class="p-assin" src="img/assinatura.webp" alt="Diego Fernando Pereira da Silva" width="1400" height="87">
       <p class="p-titulo">PORTFÓLIO</p>
       <svg class="p-estrela" viewBox="0 0 220 220" role="img" aria-label="2026"><polygon points="123.0,10.8 136.0,47.2 170.8,30.6 163.9,68.6 202.4,71.6 177.4,101.1 209.2,123.0 172.8,136.0 189.4,170.8 151.4,163.9 148.4,202.4 118.9,177.4 97.0,209.2 84.0,172.8 49.2,189.4 56.1,151.4 17.6,148.4 42.6,118.9 10.8,97.0 47.2,84.0 30.6,49.2 68.6,56.1 71.6,17.6 101.1,42.6" fill="#FF1E22"/><text x="110" y="133" text-anchor="middle" font-family="Adumu, Anton, Impact, sans-serif" font-size="64" fill="#FCE5BF" transform="rotate(14 110 110)">2026</text></svg>
-      <nav class="p-botoes" aria-label="Comece por aqui"><a href="#sobre-mim">Sobre mim</a><button type="button" aria-disabled="true" title="Seção em preparação">Serviços</button><button type="button" aria-disabled="true" title="Seção em preparação">Clientes</button></nav>
+      <nav class="p-botoes" aria-label="Comece por aqui"><a href="#sobre-mim">Sobre mim</a><a href="#servicos">Serviços</a><button type="button" aria-disabled="true" title="Seção em preparação">Clientes</button></nav>
     </div>
-    <nav class="botoes-mobile" aria-label="Comece por aqui"><a href="#sobre-mim">Sobre mim</a><button type="button" aria-disabled="true" title="Seção em preparação">Serviços</button><button type="button" aria-disabled="true" title="Seção em preparação">Clientes</button></nav>
+    <nav class="botoes-mobile" aria-label="Comece por aqui"><a href="#sobre-mim">Sobre mim</a><a href="#servicos">Serviços</a><button type="button" aria-disabled="true" title="Seção em preparação">Clientes</button></nav>
   </section>
   <section id="sobre-mim" class="sobre2" aria-label="Sobre mim">
     <div class="prancha2">
@@ -672,6 +834,534 @@ footer small{color:var(--tinta-2);font-size:.85rem}
     </div>
   </section>
 </main>
+
+<div id="mod-serv" class="sv-publico" hidden>
+<!-- ======================= TELA 1: ENTRADA ======================= -->
+<section class="sv-tela" id="t-servicos" aria-label="Serviços" hidden>
+  <img loading="lazy" class="sv-gua sv-a" src="img/guarana-g3.webp" alt="">
+  <img loading="lazy" class="sv-gua sv-b" src="img/guarana-g2.webp" alt="">
+  <div class="sv-miolo">
+    <nav class="sv-barra" aria-label="Navegação"><button type="button" data-ir="inicio">← Início</button></nav>
+    <div class="sv-card sv-titulo-ent">
+      <small>Serviços DIGAS</small>
+      <h1>O que vamos criar juntos?</h1>
+    </div>
+    <div class="sv-areas">
+      <button class="sv-area" type="button" data-ir="fotografia">
+        <div class="sv-obj"><img loading="lazy" src="img/servicos/cam/01.webp" alt="" width="640" height="459"></div>
+        <h3>Fotografia</h3><span>Retratos, eventos, paisagens e produtos</span>
+      </button>
+      <button class="sv-area" type="button" data-ir="audiovisual">
+        <div class="sv-falta">Claquete 3D<br>(imagem estática)</div>
+        <h3>Audiovisual</h3><span>Reels, eventos, institucionais e motion</span>
+      </button>
+      <button class="sv-area" type="button" data-ir="design">
+        <div class="sv-falta">Caneta 3D<br>(imagem estática)</div>
+        <h3>Design gráfico</h3><span>Identidade visual, flyers, posts e impressos</span>
+      </button>
+      <button class="sv-area" type="button" data-ir="sites">
+        <div class="sv-falta">Notebook 3D<br>(imagem estática)</div>
+        <h3>Sites e sistemas</h3><span>Sites, portfólios, sistemas e apps</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= TELA 2: FOTOGRAFIA ======================= -->
+<section class="sv-tela" id="t-fotografia" aria-label="Fotografia" hidden>
+  <img loading="lazy" class="sv-gua sv-a" src="img/guarana-g3.webp" alt="">
+  <img loading="lazy" class="sv-folha" src="img/coroa-folhas.webp" alt="">
+  <div class="sv-miolo">
+    <nav class="sv-barra" aria-label="Navegação">
+      <button type="button" data-ir="servicos">← Voltar</button>
+      <button type="button" data-ir="servicos">Explorar outros serviços ↻</button>
+    </nav>
+    <div class="sv-card sv-apresenta">
+      <div class="sv-giro" id="sv-giro" title="Arraste para girar">
+        <img loading="lazy" id="sv-cam" src="img/servicos/cam/01.webp" alt="Câmera Canon EOS Rebel T5i girando" width="640" height="459" draggable="false">
+        <span class="sv-dica">↔ arraste para girar</span>
+      </div>
+      <div>
+        <h1>Fotografia</h1>
+        <p>Registro pessoas, encontros e paisagens com atenção à luz, aos detalhes e às histórias de cada momento. De Maués para cada projeto, levo um olhar próximo, criativo e autoral.</p>
+        <ul class="sv-specs" aria-label="Destaques do equipamento"><li>18 MP</li><li>Sensor APS-C</li><li>Tela articulada touch</li></ul>
+        <p class="sv-equip">Meu equipamento: <b>Canon EOS Rebel T5i</b></p>
+        <div class="sv-acoes">
+          <button class="sv-btn sv-verm" type="button" data-ir="fotografia/galeria">Minhas fotografias</button>
+          <button class="sv-btn sv-cont" type="button" data-ir="fotografia/servicos">Serviços de fotografia</button>
+        </div>
+      </div>
+    </div>
+    <div class="sv-faixa">
+      <figure class="sv-card sv-foto"><img class="sv-real" src="img/servicos/fotos/gata-01.webp" alt="Gata tricolor deitada, olhando para a câmera" width="1000" height="1500" loading="lazy" data-zoom><figcaption>Retratos</figcaption></figure>
+      <figure class="sv-card sv-foto"><div class="sv-vaga">Sua foto<br>de evento</div><figcaption>Eventos</figcaption></figure>
+      <figure class="sv-card sv-foto"><div class="sv-vaga">Sua foto<br>de paisagem</div><figcaption>Paisagens</figcaption></figure>
+      <figure class="sv-card sv-foto"><div class="sv-vaga">Sua foto<br>de produto</div><figcaption>Produtos</figcaption></figure>
+    </div>
+    <div class="sv-contato"><a class="sv-btn" href="mailto:diegofernandosilva.10@gmail.com?subject=Fotografia%20-%20DIGAS">Bora conversar →</a></div>
+  </div>
+</section>
+
+<!-- ======================= TELA 3: GALERIA ======================= -->
+<section class="sv-tela" id="t-galeria" aria-label="Minhas fotografias" hidden>
+  <img loading="lazy" class="sv-gua sv-a" src="img/guarana-g3.webp" alt="">
+  <img loading="lazy" class="sv-gua sv-b" src="img/guarana-g2.webp" alt="">
+  <div class="sv-miolo">
+    <nav class="sv-barra" aria-label="Navegação">
+      <button type="button" data-ir="fotografia">← Fotografia</button>
+      <button type="button" data-ir="servicos">Explorar outros serviços ↻</button>
+    </nav>
+    <div class="sv-card sv-cab">
+      <small>Fotografia · Galeria</small>
+      <h1>Minhas fotografias</h1>
+      <p>Uma seleção de registros feitos com olhar próximo e atenção à luz. Toque numa foto para ver maior.</p>
+      <div class="sv-filtros" role="group" aria-label="Filtrar fotos">
+        <button type="button" data-f="todas" aria-pressed="true">Todas</button>
+        <button type="button" data-f="retratos" aria-pressed="false">Retratos</button>
+        <button type="button" data-f="eventos" aria-pressed="false">Eventos</button>
+        <button type="button" data-f="paisagens" aria-pressed="false">Paisagens</button>
+        <button type="button" data-f="produtos" aria-pressed="false">Produtos</button>
+      </div>
+    </div>
+    <div class="sv-grade">
+      <figure class="sv-card sv-item" data-cat="retratos"><img src="img/servicos/fotos/gata-01.webp" alt="Gata tricolor deitada, olhando para a câmera" width="1000" height="1500" loading="lazy" data-zoom><figcaption>Retrato pet<em>Maués</em></figcaption></figure>
+      <figure class="sv-card sv-item" data-cat="eventos"><div class="sv-vaga">Foto de<br>evento</div><figcaption>Eventos<em></em></figcaption></figure>
+      <figure class="sv-card sv-item" data-cat="paisagens"><div class="sv-vaga">Foto de<br>paisagem</div><figcaption>Paisagens<em></em></figcaption></figure>
+      <figure class="sv-card sv-item" data-cat="produtos"><div class="sv-vaga">Foto de<br>produto</div><figcaption>Produtos<em></em></figcaption></figure>
+      <figure class="sv-card sv-item" data-cat="retratos"><div class="sv-vaga">Foto de<br>retrato</div><figcaption>Retratos<em></em></figcaption></figure>
+      <figure class="sv-card sv-item" data-cat="paisagens"><div class="sv-vaga">Foto de<br>paisagem</div><figcaption>Paisagens<em></em></figcaption></figure>
+      <figure class="sv-card sv-item" data-cat="eventos"><div class="sv-vaga">Foto de<br>evento</div><figcaption>Eventos<em></em></figcaption></figure>
+      <figure class="sv-card sv-item" data-cat="produtos"><div class="sv-vaga">Foto de<br>produto</div><figcaption>Produtos<em></em></figcaption></figure>
+    </div><div class="sv-card sv-vazio">Novos trabalhos chegando em breve.</div>
+    <div class="sv-contato"><button class="sv-btn" type="button" data-ir="fotografia/servicos">Quero fotos assim →</button></div>
+  </div>
+</section>
+
+<!-- ======================= TELA 4: SERVIÇOS DE FOTOGRAFIA ======================= -->
+<section class="sv-tela" id="t-fservicos" aria-label="Serviços de fotografia" hidden>
+  <img loading="lazy" class="sv-gua sv-a" src="img/guarana-g3.webp" alt="">
+  <img loading="lazy" class="sv-folha" src="img/coroa-folhas.webp" alt="">
+  <div class="sv-miolo">
+    <nav class="sv-barra" aria-label="Navegação">
+      <button type="button" data-ir="fotografia">← Fotografia</button>
+      <button type="button" data-ir="servicos">Explorar outros serviços ↻</button>
+    </nav>
+    <div class="sv-card sv-cab">
+      <small>Fotografia · Serviços</small>
+      <h1>Serviços de fotografia</h1>
+      <p>Escolha o tipo de registro e me conte a sua ideia. Cada orçamento é montado sob medida, de acordo com o local, a duração e a quantidade de fotos.</p>
+    </div>
+    <div class="sv-tipos">
+      <article class="sv-card sv-tipo">
+        <img class="sv-real" src="img/servicos/fotos/gata-01.webp" alt="Gata tricolor deitada, olhando para a câmera" width="1000" height="1500" loading="lazy" style="object-position:50% 52%">
+        <h2>Ensaios</h2>
+        <p>Retratos pessoais, em casal, em família ou com o seu pet.</p>
+        <small class="sv-ex">Exemplos de pedido</small><ul aria-label="Exemplos de pedido"><li>Pessoal</li><li>Casal</li><li>Família</li><li>Pets</li></ul>
+        <a class="sv-btn sv-verm" href="mailto:diegofernandosilva.10@gmail.com?subject=Ensaios%20-%20DIGAS">Quero um ensaio</a>
+      </article>
+      <article class="sv-card sv-tipo">
+        <div class="sv-vaga">Foto de evento</div>
+        <h2>Eventos</h2>
+        <p>Registro fotográfico do evento, dos detalhes do lugar às pessoas.</p>
+        <small class="sv-ex">Exemplos de pedido</small><ul aria-label="Exemplos de pedido"><li>Aniversários</li><li>Formaturas</li><li>Festas</li><li>Eventos culturais</li></ul>
+        <a class="sv-btn sv-verm" href="mailto:diegofernandosilva.10@gmail.com?subject=Eventos%20-%20DIGAS">Quero fotos do meu evento</a>
+      </article>
+      <article class="sv-card sv-tipo">
+        <div class="sv-vaga">Foto de produto</div>
+        <h2>Produtos</h2>
+        <p>Fotos do que você vende, para usar nas redes sociais, em catálogos e cardápios.</p>
+        <small class="sv-ex">Exemplos de pedido</small><ul aria-label="Exemplos de pedido"><li>Redes sociais</li><li>Catálogo</li><li>Cardápio</li></ul>
+        <a class="sv-btn sv-verm" href="mailto:diegofernandosilva.10@gmail.com?subject=Produtos%20-%20DIGAS">Quero fotos do produto</a>
+      </article>
+    </div>
+    <div class="sv-card sv-passos">
+      <h2>Como funciona</h2>
+      <ol>
+        <li><b>Conversa</b>Você me conta a ideia, a data e o local, e eu envio o orçamento.</li>
+        <li><b>Registro</b>Fotografo no dia e no local combinados.</li>
+        <li><b>Entrega</b>Seleciono e trato as fotos e entrego em formato digital.</li>
+      </ol>
+    </div>
+    <div class="sv-contato"><a class="sv-btn" href="mailto:diegofernandosilva.10@gmail.com?subject=Fotografia%20-%20DIGAS">Bora conversar →</a></div>
+    <p class="sv-nota">Me conta o seu projeto e eu respondo com um orçamento.</p>
+  </div>
+</section>
+
+<!-- ======================= AUDIOVISUAL: APRESENTAÇÃO ======================= -->
+<section class="sv-tela" id="t-audiovisual" aria-label="Audiovisual" hidden>
+  <img loading="lazy" class="sv-gua sv-a" src="img/guarana-g3.webp" alt="">
+  <img loading="lazy" class="sv-folha" src="img/coroa-folhas.webp" alt="">
+  <div class="sv-miolo">
+    <nav class="sv-barra" aria-label="Navegação">
+      <button type="button" data-ir="servicos">← Voltar</button>
+      <button type="button" data-ir="servicos">Explorar outros serviços ↻</button>
+    </nav>
+    <div class="sv-card sv-apresenta">
+      <div class="sv-obj-falta">Claquete 3D<br>(imagem estática primeiro; o giro vem depois)</div>
+      <div>
+        <h1>Audiovisual</h1>
+        <p>Conto histórias em movimento: capto e edito vídeos com atenção ao ritmo e aos detalhes de cada momento. De Maués para as telas, com um olhar criativo e autoral.</p>
+        <ul class="sv-specs" aria-label="O que eu faço"><li>Captação</li><li>Edição</li><li>Motion design</li></ul>
+        <p class="sv-equip">Meu equipamento: <b>Canon EOS Rebel T5i · Full HD</b> · edição no <b>CapCut</b></p>
+        <div class="sv-acoes">
+          <button class="sv-btn sv-verm" type="button" data-ir="audiovisual/videos">Meus vídeos</button>
+          <button class="sv-btn sv-cont" type="button" data-ir="audiovisual/servicos">Serviços de audiovisual</button>
+        </div>
+      </div>
+    </div>
+    <div class="sv-faixa">
+      <figure class="sv-card sv-foto sv-video"><div class="sv-vaga"><div><span class="sv-play" aria-hidden="true">▶</span>Seu vídeo<br>de reels</div></div><figcaption>Reels</figcaption></figure>
+      <figure class="sv-card sv-foto sv-video"><div class="sv-vaga"><div><span class="sv-play" aria-hidden="true">▶</span>Seu vídeo<br>de evento</div></div><figcaption>Eventos</figcaption></figure>
+      <figure class="sv-card sv-foto sv-video"><div class="sv-vaga"><div><span class="sv-play" aria-hidden="true">▶</span>Seu vídeo<br>institucional</div></div><figcaption>Institucional</figcaption></figure>
+      <figure class="sv-card sv-foto sv-video"><div class="sv-vaga"><div><span class="sv-play" aria-hidden="true">▶</span>Seu vídeo<br>de motion</div></div><figcaption>Motion</figcaption></figure>
+    </div>
+    <div class="sv-contato"><a class="sv-btn" href="mailto:diegofernandosilva.10@gmail.com?subject=Audiovisual%20-%20DIGAS">Bora conversar →</a></div>
+  </div>
+</section>
+
+<!-- ======================= AUDIOVISUAL: VÍDEOS ======================= -->
+<section class="sv-tela" id="t-videos" aria-label="Meus vídeos" hidden>
+  <img loading="lazy" class="sv-gua sv-a" src="img/guarana-g3.webp" alt="">
+  <img loading="lazy" class="sv-gua sv-b" src="img/guarana-g2.webp" alt="">
+  <div class="sv-miolo">
+    <nav class="sv-barra" aria-label="Navegação">
+      <button type="button" data-ir="audiovisual">← Audiovisual</button>
+      <button type="button" data-ir="servicos">Explorar outros serviços ↻</button>
+    </nav>
+    <div class="sv-card sv-cab">
+      <small>Audiovisual · Vídeos</small>
+      <h1>Meus vídeos</h1>
+      <p>Uma seleção de vídeos que captei, editei ou animei. Toque num vídeo para assistir.</p>
+      <div class="sv-filtros" role="group" aria-label="Filtrar vídeos">
+        <button type="button" data-f="todas" aria-pressed="true">Todos</button>
+        <button type="button" data-f="reels" aria-pressed="false">Reels</button>
+        <button type="button" data-f="eventos" aria-pressed="false">Eventos</button>
+        <button type="button" data-f="institucional" aria-pressed="false">Institucional</button>
+        <button type="button" data-f="motion" aria-pressed="false">Motion</button>
+      </div>
+    </div>
+    <div class="sv-grade">
+      <figure class="sv-card sv-item sv-vitem sv-vert" data-cat="reels"><div class="sv-vaga"><div><span class="sv-play" aria-hidden="true">▶</span>Vídeo de<br>reels</div></div><figcaption>Reels<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-vitem" data-cat="eventos"><div class="sv-vaga"><div><span class="sv-play" aria-hidden="true">▶</span>Vídeo de<br>eventos</div></div><figcaption>Eventos<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-vitem" data-cat="institucional"><div class="sv-vaga"><div><span class="sv-play" aria-hidden="true">▶</span>Vídeo de<br>institucional</div></div><figcaption>Institucional<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-vitem" data-cat="motion"><div class="sv-vaga"><div><span class="sv-play" aria-hidden="true">▶</span>Vídeo de<br>motion</div></div><figcaption>Motion<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-vitem sv-vert" data-cat="reels"><div class="sv-vaga"><div><span class="sv-play" aria-hidden="true">▶</span>Vídeo de<br>reels</div></div><figcaption>Reels<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-vitem" data-cat="eventos"><div class="sv-vaga"><div><span class="sv-play" aria-hidden="true">▶</span>Vídeo de<br>eventos</div></div><figcaption>Eventos<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-vitem" data-cat="motion"><div class="sv-vaga"><div><span class="sv-play" aria-hidden="true">▶</span>Vídeo de<br>motion</div></div><figcaption>Motion<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-vitem" data-cat="institucional"><div class="sv-vaga"><div><span class="sv-play" aria-hidden="true">▶</span>Vídeo de<br>institucional</div></div><figcaption>Institucional<em></em></figcaption></figure>
+    </div><div class="sv-card sv-vazio">Novos trabalhos chegando em breve.</div>
+    <div class="sv-contato"><button class="sv-btn" type="button" data-ir="audiovisual/servicos">Quero um vídeo assim →</button></div>
+  </div>
+</section>
+
+<!-- ======================= AUDIOVISUAL: SERVIÇOS ======================= -->
+<section class="sv-tela" id="t-aservicos" aria-label="Serviços de audiovisual" hidden>
+  <img loading="lazy" class="sv-gua sv-a" src="img/guarana-g3.webp" alt="">
+  <img loading="lazy" class="sv-folha" src="img/coroa-folhas.webp" alt="">
+  <div class="sv-miolo">
+    <nav class="sv-barra" aria-label="Navegação">
+      <button type="button" data-ir="audiovisual">← Audiovisual</button>
+      <button type="button" data-ir="servicos">Explorar outros serviços ↻</button>
+    </nav>
+    <div class="sv-card sv-cab">
+      <small>Audiovisual · Serviços</small>
+      <h1>Serviços de audiovisual</h1>
+      <p>Da gravação à edição, ou só a parte que você precisa. Cada orçamento é montado sob medida, de acordo com a duração, o local e o tipo de vídeo.</p>
+    </div>
+    <div class="sv-tipos sv-q4">
+      <article class="sv-card sv-tipo">
+        <div class="sv-vaga sv-v">Vídeo de redes sociais</div>
+        <h2>Vídeos para redes</h2>
+        <p>Vídeos curtos no formato vertical, para reels, TikTok e stories.</p>
+        <small class="sv-ex">Exemplos de pedido</small><ul aria-label="Exemplos de pedido"><li>Reels</li><li>TikTok</li><li>Stories</li></ul>
+        <a class="sv-btn sv-verm" href="mailto:diegofernandosilva.10@gmail.com?subject=V%C3%ADdeos%20para%20redes%20-%20DIGAS">Quero vídeos para redes</a>
+      </article>
+      <article class="sv-card sv-tipo">
+        <div class="sv-vaga sv-v">Vídeo de eventos</div>
+        <h2>Vídeo de eventos</h2>
+        <p>Gravação do evento e edição de um vídeo-resumo do dia.</p>
+        <small class="sv-ex">Exemplos de pedido</small><ul aria-label="Exemplos de pedido"><li>Aftermovie</li><li>Teaser</li><li>Festas</li><li>Eventos culturais</li></ul>
+        <a class="sv-btn sv-verm" href="mailto:diegofernandosilva.10@gmail.com?subject=V%C3%ADdeo%20de%20eventos%20-%20DIGAS">Quero filmar meu evento</a>
+      </article>
+      <article class="sv-card sv-tipo">
+        <div class="sv-vaga sv-v">Vídeo de institucional</div>
+        <h2>Institucional</h2>
+        <p>Vídeos para apresentar uma marca, um produto ou um trabalho.</p>
+        <small class="sv-ex">Exemplos de pedido</small><ul aria-label="Exemplos de pedido"><li>Empresas</li><li>Produtos</li><li>Campanhas</li></ul>
+        <a class="sv-btn sv-verm" href="mailto:diegofernandosilva.10@gmail.com?subject=Institucional%20-%20DIGAS">Quero um institucional</a>
+      </article>
+      <article class="sv-card sv-tipo">
+        <div class="sv-vaga sv-v">Vídeo de edição e motion</div>
+        <h2>Edição e motion</h2>
+        <p>Edição de vídeos gravados por você e animações em motion design.</p>
+        <small class="sv-ex">Exemplos de pedido</small><ul aria-label="Exemplos de pedido"><li>Edição</li><li>Cortes para redes</li><li>Motion design</li></ul>
+        <a class="sv-btn sv-verm" href="mailto:diegofernandosilva.10@gmail.com?subject=Edi%C3%A7%C3%A3o%20e%20motion%20-%20DIGAS">Quero edição ou motion</a>
+      </article>
+    </div>
+    <div class="sv-card sv-passos">
+      <h2>Como funciona</h2>
+      <ol class="sv-q4">
+        <li><b>Conversa</b>Você me conta a ideia, onde o vídeo será usado e o prazo.</li>
+        <li><b>Planejamento</b>Combinamos o material necessário, o formato e as etapas do projeto.</li>
+        <li><b>Material</b>Recebo seus arquivos ou faço a captação, conforme o combinado.</li>
+        <li><b>Edição e entrega</b>Edito e entrego o vídeo no formato combinado.</li>
+      </ol>
+    </div>
+    <div class="sv-contato"><a class="sv-btn" href="mailto:diegofernandosilva.10@gmail.com?subject=Audiovisual%20-%20DIGAS">Bora conversar →</a></div>
+    <p class="sv-nota">Me conta o seu projeto e eu respondo com um orçamento.</p>
+  </div>
+</section>
+
+<!-- ======================= DESIGN GRÁFICO: APRESENTAÇÃO ======================= -->
+<section class="sv-tela" id="t-design" aria-label="Design gráfico" hidden>
+  <img loading="lazy" class="sv-gua sv-a" src="img/guarana-g3.webp" alt="">
+  <img loading="lazy" class="sv-folha" src="img/coroa-folhas.webp" alt="">
+  <div class="sv-miolo">
+    <nav class="sv-barra" aria-label="Navegação">
+      <button type="button" data-ir="servicos">← Voltar</button>
+      <button type="button" data-ir="servicos">Explorar outros serviços ↻</button>
+    </nav>
+    <div class="sv-card sv-apresenta">
+      <div class="sv-obj-falta">Caneta 3D<br>(imagem estática primeiro; o giro vem depois)</div>
+      <div>
+        <h1>Design gráfico</h1>
+        <p>Transformo ideias em peças que comunicam: identidades, flyers, posts e impressos com cor, forma e personalidade. De Maués para cada marca, um design que tem a cara de quem ele representa.</p>
+        <ul class="sv-specs" aria-label="O que eu faço"><li>Identidade visual</li><li>Flyers e posts</li><li>Impressos</li></ul>
+        <p class="sv-equip">Minhas ferramentas: <b>Photoshop · Canva</b></p>
+        <div class="sv-acoes">
+          <button class="sv-btn sv-verm" type="button" data-ir="design/trabalhos">Meus trabalhos</button>
+          <button class="sv-btn sv-cont" type="button" data-ir="design/servicos">Serviços de design</button>
+        </div>
+      </div>
+    </div>
+    <div class="sv-faixa">
+      <figure class="sv-card sv-foto"><div class="sv-vaga sv-q">Seu trabalho<br>de identidade</div><figcaption>Identidade</figcaption></figure>
+      <figure class="sv-card sv-foto"><div class="sv-vaga sv-q">Seu trabalho<br>de flyers</div><figcaption>Flyers</figcaption></figure>
+      <figure class="sv-card sv-foto"><div class="sv-vaga sv-q">Seu trabalho<br>de posts</div><figcaption>Posts</figcaption></figure>
+      <figure class="sv-card sv-foto"><div class="sv-vaga sv-q">Seu trabalho<br>de impressos</div><figcaption>Impressos</figcaption></figure>
+    </div>
+    <div class="sv-contato"><a class="sv-btn" href="mailto:diegofernandosilva.10@gmail.com?subject=Design%20gr%C3%A1fico%20-%20DIGAS">Bora conversar →</a></div>
+  </div>
+</section>
+
+<!-- ======================= DESIGN GRÁFICO: TRABALHOS ======================= -->
+<section class="sv-tela" id="t-design-trab" aria-label="Meus trabalhos" hidden>
+  <img loading="lazy" class="sv-gua sv-a" src="img/guarana-g3.webp" alt="">
+  <img loading="lazy" class="sv-gua sv-b" src="img/guarana-g2.webp" alt="">
+  <div class="sv-miolo">
+    <nav class="sv-barra" aria-label="Navegação">
+      <button type="button" data-ir="design">← Design gráfico</button>
+      <button type="button" data-ir="servicos">Explorar outros serviços ↻</button>
+    </nav>
+    <div class="sv-card sv-cab">
+      <small>Design gráfico · Trabalhos</small>
+      <h1>Meus trabalhos</h1>
+      <p>Uma seleção de peças que criei para marcas, eventos e pessoas. Toque numa arte para ver maior.</p>
+      <div class="sv-filtros" role="group" aria-label="Filtrar trabalhos">
+        <button type="button" data-f="todas" aria-pressed="true">Todos</button>
+        <button type="button" data-f="identidade" aria-pressed="false">Identidade visual</button>
+        <button type="button" data-f="flyers" aria-pressed="false">Flyers</button>
+        <button type="button" data-f="posts" aria-pressed="false">Posts</button>
+        <button type="button" data-f="impressos" aria-pressed="false">Impressos</button>
+      </div>
+    </div>
+    <div class="sv-grade">
+      <figure class="sv-card sv-item sv-ditem" data-cat="flyers"><div class="sv-vaga">Arte de<br>flyers</div><figcaption>Flyers<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-ditem sv-lg" data-cat="identidade"><div class="sv-vaga">Arte de<br>identidade visual</div><figcaption>Identidade visual<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-ditem sv-sq" data-cat="posts"><div class="sv-vaga">Arte de<br>posts</div><figcaption>Posts<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-ditem sv-lg" data-cat="impressos"><div class="sv-vaga">Arte de<br>impressos</div><figcaption>Impressos<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-ditem" data-cat="flyers"><div class="sv-vaga">Arte de<br>flyers</div><figcaption>Flyers<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-ditem sv-sq" data-cat="posts"><div class="sv-vaga">Arte de<br>posts</div><figcaption>Posts<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-ditem sv-lg" data-cat="identidade"><div class="sv-vaga">Arte de<br>identidade visual</div><figcaption>Identidade visual<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-ditem" data-cat="impressos"><div class="sv-vaga">Arte de<br>impressos</div><figcaption>Impressos<em></em></figcaption></figure>
+    </div><div class="sv-card sv-vazio">Novos trabalhos chegando em breve.</div>
+    <div class="sv-contato"><button class="sv-btn" type="button" data-ir="design/servicos">Quero uma arte assim →</button></div>
+  </div>
+</section>
+
+<!-- ======================= DESIGN GRÁFICO: SERVIÇOS ======================= -->
+<section class="sv-tela" id="t-design-serv" aria-label="Serviços de design" hidden>
+  <img loading="lazy" class="sv-gua sv-a" src="img/guarana-g3.webp" alt="">
+  <img loading="lazy" class="sv-folha" src="img/coroa-folhas.webp" alt="">
+  <div class="sv-miolo">
+    <nav class="sv-barra" aria-label="Navegação">
+      <button type="button" data-ir="design">← Design gráfico</button>
+      <button type="button" data-ir="servicos">Explorar outros serviços ↻</button>
+    </nav>
+    <div class="sv-card sv-cab">
+      <small>Design gráfico · Serviços</small>
+      <h1>Serviços de design</h1>
+      <p>Da identidade da marca a uma peça avulsa. Cada orçamento é montado sob medida, de acordo com o tipo de peça, a quantidade e o prazo.</p>
+    </div>
+    <div class="sv-tipos sv-q4">
+      <article class="sv-card sv-tipo">
+        <div class="sv-vaga sv-d">Arte de identidade visual</div>
+        <h2>Identidade visual</h2>
+        <p>Criação do visual da sua marca: logo, cores e tipografia.</p>
+        <small class="sv-ex">Exemplos de pedido</small><ul aria-label="Exemplos de pedido"><li>Logo</li><li>Paleta de cores</li><li>Tipografia</li></ul>
+        <a class="sv-btn sv-verm" href="mailto:diegofernandosilva.10@gmail.com?subject=Identidade%20visual%20-%20DIGAS">Quero minha identidade</a>
+      </article>
+      <article class="sv-card sv-tipo">
+        <div class="sv-vaga sv-d">Arte de flyers e cartazes</div>
+        <span class="sv-selo">Peça avulsa</span><h2>Flyers e cartazes</h2>
+        <p>Peças avulsas de divulgação, para anunciar um evento, uma promoção ou uma campanha, em versão digital ou para imprimir.</p>
+        <small class="sv-ex">Exemplos de pedido</small><ul aria-label="Exemplos de pedido"><li>Eventos</li><li>Festas</li><li>Promoções</li><li>Campanhas</li></ul>
+        <a class="sv-btn sv-verm" href="mailto:diegofernandosilva.10@gmail.com?subject=Flyers%20e%20cartazes%20-%20DIGAS">Quero um flyer</a>
+      </article>
+      <article class="sv-card sv-tipo">
+        <div class="sv-vaga sv-d">Arte de redes sociais</div>
+        <span class="sv-selo">Conjunto de posts</span><h2>Redes sociais</h2>
+        <p>Conjuntos de posts e carrosséis criados juntos, com o mesmo visual, para manter o perfil organizado.</p>
+        <small class="sv-ex">Exemplos de pedido</small><ul aria-label="Exemplos de pedido"><li>Pacotes de posts</li><li>Carrosséis</li><li>Stories</li><li>Capas de destaque</li></ul>
+        <a class="sv-btn sv-verm" href="mailto:diegofernandosilva.10@gmail.com?subject=Redes%20sociais%20-%20DIGAS">Quero posts</a>
+      </article>
+      <article class="sv-card sv-tipo">
+        <div class="sv-vaga sv-d">Arte de impressos</div>
+        <h2>Impressos</h2>
+        <p>Artes para imprimir, preparadas no tamanho pedido pela gráfica.</p>
+        <small class="sv-ex">Exemplos de pedido</small><ul aria-label="Exemplos de pedido"><li>Cartões</li><li>Banners</li><li>Cardápios</li><li>Rótulos</li></ul>
+        <a class="sv-btn sv-verm" href="mailto:diegofernandosilva.10@gmail.com?subject=Impressos%20-%20DIGAS">Quero um impresso</a>
+      </article>
+    </div>
+    <div class="sv-card sv-passos">
+      <h2>Como funciona</h2>
+      <ol class="sv-q4">
+        <li><b>Briefing</b>Você me conta o que precisa, para quem é e onde a peça vai ser usada.</li>
+        <li><b>Proposta</b>Apresento a primeira versão da peça.</li>
+        <li><b>Ajustes</b>Fazemos os ajustes combinados.</li>
+        <li><b>Arquivos finais</b>Entrego os arquivos para redes ou para impressão.</li>
+      </ol>
+    </div>
+    <div class="sv-contato"><a class="sv-btn" href="mailto:diegofernandosilva.10@gmail.com?subject=Design%20gr%C3%A1fico%20-%20DIGAS">Bora conversar →</a></div>
+    <p class="sv-nota">Me conta o seu projeto e eu respondo com um orçamento.</p>
+  </div>
+</section>
+
+<!-- ======================= SITES E SISTEMAS: APRESENTAÇÃO ======================= -->
+<section class="sv-tela" id="t-sites" aria-label="Sites e sistemas" hidden>
+  <img loading="lazy" class="sv-gua sv-a" src="img/guarana-g3.webp" alt="">
+  <img loading="lazy" class="sv-folha" src="img/coroa-folhas.webp" alt="">
+  <div class="sv-miolo">
+    <nav class="sv-barra" aria-label="Navegação">
+      <button type="button" data-ir="servicos">← Voltar</button>
+      <button type="button" data-ir="servicos">Explorar outros serviços ↻</button>
+    </nav>
+    <div class="sv-card sv-apresenta">
+      <div class="sv-obj-falta">Notebook 3D<br>(imagem estática primeiro; o giro vem depois)</div>
+      <div>
+        <h1>Sites e sistemas</h1>
+        <p>Desenvolvo sites, sistemas e apps pensados para o computador e para o celular, com visual próprio e foco em quem vai usar. De Maués para a internet, tecnologia com cara de gente.</p>
+        <ul class="sv-specs" aria-label="O que eu faço"><li>Sites</li><li>Sistemas</li><li>Apps</li></ul>
+        <p class="sv-equip">Minhas ferramentas: <b>HTML · VS Code · Flutter · Android Studio · GitHub</b></p>
+        <div class="sv-acoes">
+          <button class="sv-btn sv-verm" type="button" data-ir="sites/trabalhos">Meus projetos</button>
+          <button class="sv-btn sv-cont" type="button" data-ir="sites/servicos">Serviços de sites e sistemas</button>
+        </div>
+      </div>
+    </div>
+    <div class="sv-faixa">
+      <figure class="sv-card sv-foto sv-site"><div class="sv-nav-falso" aria-hidden="true"><i></i><i></i><i></i></div><div class="sv-vaga">Seu projeto<br>de portfólio</div><figcaption>Portfólio</figcaption></figure>
+      <figure class="sv-card sv-foto sv-site"><div class="sv-nav-falso" aria-hidden="true"><i></i><i></i><i></i></div><div class="sv-vaga">Seu projeto<br>de negócio</div><figcaption>Negócio</figcaption></figure>
+      <figure class="sv-card sv-foto sv-site"><div class="sv-nav-falso" aria-hidden="true"><i></i><i></i><i></i></div><div class="sv-vaga">Seu projeto<br>de sistema</div><figcaption>Sistema</figcaption></figure>
+      <figure class="sv-card sv-foto sv-site"><div class="sv-nav-falso" aria-hidden="true"><i></i><i></i><i></i></div><div class="sv-vaga">Seu projeto<br>de app</div><figcaption>App</figcaption></figure>
+    </div>
+    <div class="sv-contato"><a class="sv-btn" href="mailto:diegofernandosilva.10@gmail.com?subject=Sites%20e%20sistemas%20-%20DIGAS">Bora conversar →</a></div>
+  </div>
+</section>
+
+<!-- ======================= SITES E SISTEMAS: TRABALHOS ======================= -->
+<section class="sv-tela" id="t-sites-trab" aria-label="Meus projetos" hidden>
+  <img loading="lazy" class="sv-gua sv-a" src="img/guarana-g3.webp" alt="">
+  <img loading="lazy" class="sv-gua sv-b" src="img/guarana-g2.webp" alt="">
+  <div class="sv-miolo">
+    <nav class="sv-barra" aria-label="Navegação">
+      <button type="button" data-ir="sites">← Sites e sistemas</button>
+      <button type="button" data-ir="servicos">Explorar outros serviços ↻</button>
+    </nav>
+    <div class="sv-card sv-cab">
+      <small>Sites e sistemas · Projetos</small>
+      <h1>Meus projetos</h1>
+      <p>Sites, sistemas e apps que desenvolvi. Toque num projeto para ver mais.</p>
+      <div class="sv-filtros" role="group" aria-label="Filtrar trabalhos">
+        <button type="button" data-f="todas" aria-pressed="true">Todos</button>
+        <button type="button" data-f="sites" aria-pressed="false">Sites</button>
+        <button type="button" data-f="sistemas" aria-pressed="false">Sistemas</button>
+        <button type="button" data-f="apps" aria-pressed="false">Apps</button>
+      </div>
+    </div>
+    <div class="sv-grade">
+      <figure class="sv-card sv-item sv-sitem" data-cat="sites"><div class="sv-nav-falso" aria-hidden="true"><i></i><i></i><i></i></div><div class="sv-vaga">Projeto de<br>sites</div><figcaption>Sites<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-sitem" data-cat="sistemas"><div class="sv-nav-falso" aria-hidden="true"><i></i><i></i><i></i></div><div class="sv-vaga">Projeto de<br>sistemas</div><figcaption>Sistemas<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-sitem" data-cat="apps"><div class="sv-nav-falso" aria-hidden="true"><i></i><i></i><i></i></div><div class="sv-vaga">Projeto de<br>apps</div><figcaption>Apps<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-sitem" data-cat="sites"><div class="sv-nav-falso" aria-hidden="true"><i></i><i></i><i></i></div><div class="sv-vaga">Projeto de<br>sites</div><figcaption>Sites<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-sitem" data-cat="sistemas"><div class="sv-nav-falso" aria-hidden="true"><i></i><i></i><i></i></div><div class="sv-vaga">Projeto de<br>sistemas</div><figcaption>Sistemas<em></em></figcaption></figure>
+      <figure class="sv-card sv-item sv-sitem" data-cat="apps"><div class="sv-nav-falso" aria-hidden="true"><i></i><i></i><i></i></div><div class="sv-vaga">Projeto de<br>apps</div><figcaption>Apps<em></em></figcaption></figure>
+    </div><div class="sv-card sv-vazio">Novos trabalhos chegando em breve.</div>
+    <div class="sv-contato"><button class="sv-btn" type="button" data-ir="sites/servicos">Quero um projeto assim →</button></div>
+  </div>
+</section>
+
+<!-- ======================= SITES E SISTEMAS: SERVIÇOS ======================= -->
+<section class="sv-tela" id="t-sites-serv" aria-label="Serviços de sites e sistemas" hidden>
+  <img loading="lazy" class="sv-gua sv-a" src="img/guarana-g3.webp" alt="">
+  <img loading="lazy" class="sv-folha" src="img/coroa-folhas.webp" alt="">
+  <div class="sv-miolo">
+    <nav class="sv-barra" aria-label="Navegação">
+      <button type="button" data-ir="sites">← Sites e sistemas</button>
+      <button type="button" data-ir="servicos">Explorar outros serviços ↻</button>
+    </nav>
+    <div class="sv-card sv-cab">
+      <small>Sites e sistemas · Serviços</small>
+      <h1>Serviços de sites e sistemas</h1>
+      <p>Sites para negócios, portfólios, sistemas e apps. Cada orçamento é montado de acordo com as páginas, as funções e o prazo do projeto.</p>
+    </div>
+    <div class="sv-tipos sv-q4">
+      <article class="sv-card sv-tipo">
+        <div class="sv-nav-falso" aria-hidden="true"><i></i><i></i><i></i></div><div class="sv-vaga sv-s">Tela de sites e landing pages</div>
+        <h2>Sites para negócios</h2>
+        <p>Sites para apresentar uma empresa, os serviços e as formas de contato.</p>
+        <small class="sv-ex">Exemplos de pedido</small><ul aria-label="Exemplos de pedido"><li>Negócios</li><li>Eventos</li><li>Lançamentos</li><li>Landing pages</li></ul>
+        <a class="sv-btn sv-verm" href="mailto:diegofernandosilva.10@gmail.com?subject=Sites%20para%20neg%C3%B3cios%20-%20DIGAS">Quero um site</a>
+      </article>
+      <article class="sv-card sv-tipo">
+        <div class="sv-nav-falso" aria-hidden="true"><i></i><i></i><i></i></div><div class="sv-vaga sv-s">Tela de portfólios</div>
+        <span class="sv-selo">Especialidade</span><h2>Portfólios</h2>
+        <p>Uma especialidade dentro dos sites. O site de negócio apresenta a empresa e os serviços; o portfólio organiza e mostra trabalhos por área, com galerias e páginas de projeto. Este site é um exemplo.</p>
+        <small class="sv-ex">Exemplos de pedido</small><ul aria-label="Exemplos de pedido"><li>Criativos</li><li>Fotógrafos</li><li>Artistas</li></ul>
+        <a class="sv-btn sv-verm" href="mailto:diegofernandosilva.10@gmail.com?subject=Portf%C3%B3lios%20-%20DIGAS">Quero meu portfólio</a>
+      </article>
+      <article class="sv-card sv-tipo">
+        <div class="sv-nav-falso" aria-hidden="true"><i></i><i></i><i></i></div><div class="sv-vaga sv-s">Tela de sistemas sob medida</div>
+        <h2>Sistemas sob medida</h2>
+        <p>Sistemas web para uma necessidade específica do seu negócio, definidos juntos na conversa.</p>
+        <small class="sv-ex">Exemplos de pedido</small><ul aria-label="Exemplos de pedido"><li>Uso interno</li><li>Negócios locais</li><li>Projetos sob medida</li></ul>
+        <a class="sv-btn sv-verm" href="mailto:diegofernandosilva.10@gmail.com?subject=Sistemas%20sob%20medida%20-%20DIGAS">Quero um sistema</a>
+      </article>
+      <article class="sv-card sv-tipo">
+        <div class="sv-nav-falso" aria-hidden="true"><i></i><i></i><i></i></div><div class="sv-vaga sv-s">Tela de apps</div>
+        <h2>Apps</h2>
+        <p>Aplicativos para celular desenvolvidos com Flutter.</p>
+        <small class="sv-ex">Exemplos de pedido</small><ul aria-label="Exemplos de pedido"><li>Android</li><li>Protótipos</li></ul>
+        <a class="sv-btn sv-verm" href="mailto:diegofernandosilva.10@gmail.com?subject=Apps%20-%20DIGAS">Quero um app</a>
+      </article>
+    </div>
+    <div class="sv-card sv-passos">
+      <h2>Como funciona</h2>
+      <ol class="sv-q4">
+        <li><b>Conversa</b>Você me conta o objetivo, quem vai usar e o que precisa ter.</li>
+        <li><b>Estrutura</b>Defino as telas e mostro o visual antes de programar.</li>
+        <li><b>Desenvolvimento</b>Programo e testo no computador e no celular.</li>
+        <li><b>Entrega</b>Entrego o projeto e combinamos como ele vai para o ar.</li>
+      </ol>
+    </div>
+    <div class="sv-contato"><a class="sv-btn" href="mailto:diegofernandosilva.10@gmail.com?subject=Sites%20e%20sistemas%20-%20DIGAS">Bora conversar →</a></div>
+    <p class="sv-nota">Me conta o seu projeto e eu respondo com um orçamento.</p>
+  </div>
+</section>
+
+<dialog class="sv-lb" id="sv-lb" aria-label="Foto ampliada"><img loading="lazy" alt=""><button type="button" aria-label="Fechar">✕</button></dialog>
+
+</div>
 
 <footer>
   <div class="wrap">
@@ -796,6 +1486,63 @@ footer small{color:var(--tinta-2);font-size:.85rem}
   av.addEventListener('pointermove',function(e){ if(!arr)return; mostra(arr.i-Math.round((e.clientX-arr.x)/22)); });
   function solta(){ if(!arr)return; arr=null; av.classList.remove('arrastando'); }
   av.addEventListener('pointerup',solta); av.addEventListener('pointercancel',solta);
+})();
+</script>
+<script id="servicos-js">
+// Módulo Serviços: telas por endereço (#servicos, #fotografia, #design/servicos...)
+(function(){
+  var mod=document.getElementById('mod-serv'), principal=document.getElementById('inicio'), TITULO=document.title;
+  var telas={'servicos':'t-servicos','fotografia':'t-fotografia','fotografia/galeria':'t-galeria','fotografia/servicos':'t-fservicos','audiovisual':'t-audiovisual','audiovisual/videos':'t-videos','audiovisual/servicos':'t-aservicos','design':'t-design','design/trabalhos':'t-design-trab','design/servicos':'t-design-serv','sites':'t-sites','sites/trabalhos':'t-sites-trab','sites/servicos':'t-sites-serv'};
+  var primeira=true, camPronta=false;
+  function topo(){window.scrollTo({top:0,left:0,behavior:'instant'})}
+  function rota(){
+    var h=decodeURIComponent(location.hash.slice(1));
+    if(telas[h]){
+      mod.hidden=false; principal.hidden=true;
+      Object.keys(telas).forEach(function(k){document.getElementById(telas[k]).hidden=(k!==h)});
+      topo();
+      var t=document.getElementById(telas[h]), h1=t.querySelector('h1');
+      document.title=(h1?h1.textContent:'Serviços')+' · DIGAS';
+      if(h==='fotografia') preparaCam();
+      if(primeira){primeira=false}else if(h1){h1.tabIndex=-1;h1.focus({preventScroll:true})}
+    }else if(!mod.hidden){
+      mod.hidden=true; principal.hidden=false; document.title=TITULO;
+      var alvo=h&&document.getElementById(h);
+      if(alvo&&alvo!==principal) alvo.scrollIntoView({behavior:'instant'}); else topo();
+    }
+    primeira=false;
+  }
+  document.querySelectorAll('#mod-serv [data-ir]').forEach(function(b){b.addEventListener('click',function(){location.hash=b.dataset.ir})});
+  addEventListener('hashchange',rota);
+
+  // esconde faixas e galerias sem nenhum trabalho real
+  mod.querySelectorAll('.sv-faixa,.sv-grade').forEach(function(c){var real=[].some.call(c.children,function(x){return !x.querySelector('.sv-vaga')});c.classList.toggle('sv-sem-real',!real)});
+  // filtros das galerias
+  mod.querySelectorAll('.sv-filtros').forEach(function(g){
+    var tela=g.closest('.sv-tela'), fb=g.querySelectorAll('button');
+    fb.forEach(function(b){b.addEventListener('click',function(){var f=b.dataset.f;
+      fb.forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+      tela.querySelectorAll('.sv-grade .sv-item').forEach(function(it){it.hidden=!(f==='todas'||it.dataset.cat===f)})})});
+  });
+  // foto ampliada
+  var lb=document.getElementById('sv-lb');
+  mod.querySelectorAll('[data-zoom]').forEach(function(im){im.addEventListener('click',function(){var g=lb.querySelector('img');g.src=im.currentSrc||im.src;g.alt=im.alt;lb.showModal()})});
+  lb.addEventListener('click',function(e){if(e.target!==lb.querySelector('img'))lb.close()});
+  // câmera 360° (carrega os quadros só quando a tela de Fotografia abre)
+  var img=document.getElementById('sv-cam'), box=document.getElementById('sv-giro');
+  var q=[0,1,2,3,4,5,6,7].map(function(i){return 'img/servicos/cam/0'+i+'.webp'});
+  var at=1, arr=null, reduz=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function vai(i){at=((i%8)+8)%8;img.src=q[at];}
+  function preparaCam(){
+    if(camPronta)return; camPronta=true;
+    q.forEach(function(s){var i=new Image();i.src=s});
+    if(!reduz) setInterval(function(){if(!arr&&!document.hidden&&!mod.hidden&&!document.getElementById('t-fotografia').hidden)vai(at+1)},160);
+  }
+  box.addEventListener('pointerdown',function(e){preparaCam();arr={x:e.clientX,i:at};box.classList.add('sv-arrastando');box.setPointerCapture(e.pointerId)});
+  box.addEventListener('pointermove',function(e){if(arr)vai(arr.i-Math.round((e.clientX-arr.x)/30))});
+  function solta(){arr=null;box.classList.remove('sv-arrastando')}
+  box.addEventListener('pointerup',solta);box.addEventListener('pointercancel',solta);
+  rota();
 })();
 </script>
 </body>
