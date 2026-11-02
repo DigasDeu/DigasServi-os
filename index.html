@@ -730,11 +730,36 @@ footer small{color:var(--tinta-2);font-size:.85rem}
 #mod-serv .sv-tela:has(> .sv-folha){padding-bottom:190px}
 #mod-serv .sv-folha{bottom:-120px}
 #mod-serv .sv-tipo .sv-vaga,#mod-serv .sv-tipo .sv-vaga.sv-d,#mod-serv .sv-tipo .sv-vaga.sv-s,#mod-serv .sv-tipo .sv-vaga.sv-v{aspect-ratio:2/1}}@media (prefers-reduced-motion:reduce){}
+/* caneta desenhando na mesa (Design gráfico) */
+#mod-serv .sv-desenho{position:relative;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+#mod-serv .sv-desenho svg{display:block;width:100%;height:auto;overflow:visible}
+#mod-serv .sv-desenho .sv-tracos{transition:opacity .5s}
+#mod-serv .sv-desenho .sv-tracos.sv-some{opacity:0}
+#mod-serv .sv-desenho .sv-dica{display:block;text-align:center;margin-top:8px;font:600 .78rem var(--f-corpo);color:var(--marrom-2);white-space:nowrap}
+#mod-serv .sv-desenho:focus-visible{outline:3px solid var(--marrom);outline-offset:4px;border-radius:12px}
+
+/* notebook com código virando site (Sites e sistemas) */
+#mod-serv .sv-codigo{position:relative;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+#mod-serv .sv-codigo svg{display:block;width:100%;height:auto}
+#mod-serv .sv-codigo .sv-dica{display:block;text-align:center;margin-top:8px;font:600 .78rem var(--f-corpo);color:var(--marrom-2);white-space:nowrap}
+#mod-serv .sv-codigo:focus-visible{outline:3px solid var(--marrom);outline-offset:4px;border-radius:12px}
+#mod-serv .sv-codigo text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;font-size:30px;white-space:pre}
+#mod-serv .sv-codigo .sv-cod-aba{font-size:22px;fill:#F4D7A8;font-family:var(--f-corpo)}
+#mod-serv .sv-codigo .sv-p-logo{font-family:var(--f-marca);font-size:40px;fill:#FCE5BF}
+#mod-serv .sv-codigo .sv-p-h1{font-family:var(--f-marca);font-size:66px;fill:#5B993E}
+#mod-serv .sv-codigo .sv-p-txt{font-family:var(--f-corpo);font-weight:600;font-size:32px;fill:#6B3A12}
+#mod-serv .sv-codigo .sv-p-btn{font-family:var(--f-corpo);font-weight:700;font-size:28px;fill:#FCE5BF;text-anchor:middle}
+#mod-serv .sv-codigo .sv-p-card{font-family:var(--f-corpo);font-weight:700;font-size:30px;fill:#6B3A12;text-anchor:middle}
+#mod-serv .sv-codigo .sv-prev>g{opacity:0;transform:translateY(18px);transition:opacity .35s,transform .45s cubic-bezier(.3,1.5,.5,1)}
+#mod-serv .sv-codigo .sv-prev>g.sv-on{opacity:1;transform:none}
+#mod-serv .sv-codigo .sv-cod-linhas,#mod-serv .sv-codigo .sv-prev{transition:opacity .5s}
+#mod-serv .sv-codigo.sv-limpa .sv-cod-linhas,#mod-serv .sv-codigo.sv-limpa .sv-prev{opacity:0}
+
 /* versão pública: só o que é real */
 #mod-serv{display:block;min-height:100vh}
 #mod-serv[hidden]{display:none!important}
 #mod-serv.sv-publico .sv-obj-falta,#mod-serv.sv-publico .sv-area .sv-falta{display:none}
-#mod-serv.sv-publico .sv-apresenta:not(:has(.sv-giro)){grid-template-columns:1fr}
+#mod-serv.sv-publico .sv-apresenta:not(:has(.sv-giro,.sv-desenho,.sv-codigo)){grid-template-columns:1fr}
 #mod-serv.sv-publico .sv-area{justify-content:center;min-height:170px}
 @media (min-width:821px){#mod-serv.sv-publico .sv-faixa:not(.sv-sem-real){display:flex;justify-content:center}#mod-serv.sv-publico .sv-faixa .sv-foto{flex:0 1 calc(25% - 11px)}}
 
@@ -852,15 +877,15 @@ footer small{color:var(--tinta-2);font-size:.85rem}
         <h3>Fotografia</h3><span>Retratos, eventos, paisagens e produtos</span>
       </button>
       <button class="sv-area" type="button" data-ir="audiovisual">
-        <div class="sv-falta">Claquete 3D<br>(imagem estática)</div>
+        <div class="sv-obj"><img loading="lazy" src="img/servicos/claq/01.webp" alt="" width="640" height="459"></div>
         <h3>Audiovisual</h3><span>Reels, eventos, institucionais e motion</span>
       </button>
       <button class="sv-area" type="button" data-ir="design">
-        <div class="sv-falta">Caneta 3D<br>(imagem estática)</div>
+        <div class="sv-obj"><img loading="lazy" src="img/servicos/design/card.webp" alt="" width="700" height="468"></div>
         <h3>Design gráfico</h3><span>Identidade visual, flyers, posts e impressos</span>
       </button>
       <button class="sv-area" type="button" data-ir="sites">
-        <div class="sv-falta">Notebook 3D<br>(imagem estática)</div>
+        <div class="sv-obj"><img loading="lazy" src="img/servicos/sites/card.webp" alt="" width="700" height="504"></div>
         <h3>Sites e sistemas</h3><span>Sites, portfólios, sistemas e apps</span>
       </button>
     </div>
@@ -997,7 +1022,10 @@ footer small{color:var(--tinta-2);font-size:.85rem}
       <button type="button" data-ir="servicos">Explorar outros serviços ↻</button>
     </nav>
     <div class="sv-card sv-apresenta">
-      <div class="sv-obj-falta">Claquete 3D<br>(imagem estática primeiro; o giro vem depois)</div>
+      <div class="sv-giro" id="sv-giro-claq" title="Arraste para girar">
+        <img loading="lazy" id="sv-claq" src="img/servicos/claq/01.webp" alt="Claquete de cinema girando" width="640" height="459" draggable="false">
+        <span class="sv-dica">↔ arraste para girar</span>
+      </div>
       <div>
         <h1>Audiovisual</h1>
         <p>Conto histórias em movimento: capto e edito vídeos com atenção ao ritmo e aos detalhes de cada momento. De Maués para as telas, com um olhar criativo e autoral.</p>
@@ -1122,7 +1150,27 @@ footer small{color:var(--tinta-2);font-size:.85rem}
       <button type="button" data-ir="servicos">Explorar outros serviços ↻</button>
     </nav>
     <div class="sv-card sv-apresenta">
-      <div class="sv-obj-falta">Caneta 3D<br>(imagem estática primeiro; o giro vem depois)</div>
+      <div class="sv-desenho" id="sv-desenho" title="Toque para desenhar de novo" role="img" aria-label="Caneta digitalizadora desenhando o rosto do Diego na tela de uma mesa digitalizadora">
+        <svg viewBox="52 250 1396 1001" aria-hidden="true">
+          <image href="img/servicos/design/mesa.webp" x="52" y="250" width="1396" height="1001"/>
+          <g class="sv-tracos" fill="none" stroke="#5B993E" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M516.9 709.9 L506.6 709.7 L500.3 710.5 L490.8 713.5 L482.9 717.5 L476.4 722.1 L468.9 729.4 L462.3 738.2 L457.7 747.0 L454.7 757.3 L453.2 767.6 L453.5 776.5 L455.3 786.9 L458.5 795.8 L462.1 803.3 L468.1 812.3 L474.7 819.7 L482.5 825.9 L490.3 830.6 L498.1 833.9 L507.6 836.4 L515.5 837.2 L523.5 837.0 L533.1 835.2 L542.6 831.9 L544.8 832.6 L552.8 851.8 L561.4 867.0 L574.5 885.2 L589.2 902.0 L603.3 915.4 L619.2 928.1 L635.1 938.6 L654.3 948.9 L672.0 956.1 L686.5 960.8 L714.0 967.0 L725.3 968.5 L743.1 969.8 L759.2 969.8 L778.6 968.4 L793.2 966.2 L811.0 962.4 L840.0 953.1 L852.8 947.6 L868.8 939.2 L880.0 932.2 L892.7 922.9 L902.2 914.7 L918.6 897.9 L930.6 882.6 L940.7 867.4 L949.0 852.3 L957.9 832.7 L963.4 817.7 L969.2 798.5 L971.8 797.4 L983.0 797.8 L987.7 797.3 L997.1 794.9 L1006.5 790.9 L1015.8 785.4 L1022.0 780.4 L1028.9 773.5 L1033.5 767.6 L1037.9 760.2 L1041.9 751.3 L1045.1 741.0 L1046.4 733.7 L1046.9 726.3 L1045.7 714.6 L1042.8 704.4 L1039.7 697.1 L1034.2 688.4 L1029.3 682.6 L1024.8 678.5 L1016.8 673.1 L1008.9 669.4 L1002.6 667.7 L993.2 666.8 L984.6 667.2"/>
+            <path d="M518.1 708.7 L517.0 705.0 L509.8 690.5 L504.2 676.0 L499.0 658.7 L497.2 650.0 L495.5 640.0 L494.7 624.2 L496.2 608.6 L498.0 600.2 L496.5 598.8 L488.9 598.6 L485.9 596.7 L483.4 592.5 L483.2 586.8 L484.7 579.8 L488.8 569.9 L494.5 560.1 L502.5 548.8 L515.5 534.8 L538.3 516.2 L538.1 514.4 L530.9 513.2 L528.0 511.8 L526.2 509.3 L526.1 506.6 L527.6 502.4 L531.4 496.9 L536.3 491.4 L545.4 483.1 L559.4 472.6 L576.3 461.8 L594.8 451.7 L619.2 440.0 L648.1 428.5 L669.4 421.3 L689.1 415.6 L711.7 410.2 L729.8 407.0 L757.0 404.0 L782.6 403.5 L794.7 404.2 L812.8 406.7 L827.9 410.4 L844.6 416.8 L855.2 422.7 L864.4 429.2 L873.1 437.3 L878.3 444.1 L884.8 455.8 L901.3 457.5 L913.5 461.2 L927.3 468.3 L938.2 476.1 L947.1 484.3 L955.4 494.0 L962.9 505.0 L967.4 513.4 L974.3 530.1 L978.5 544.0 L981.9 559.5 L985.0 582.0 L986.4 613.2 L986.2 624.6 L984.3 657.6 L983.7 664.8 L982.5 667.5 L972.1 672.7 L961.9 681.4 L959.8 680.9 L957.2 653.8 L952.2 629.4 L946.1 610.8 L936.5 591.0 L927.0 576.8 L912.2 559.9 L895.3 544.5 L875.1 528.2 L866.5 519.9 L860.0 511.6 L855.0 501.9 L853.1 500.3 L850.4 501.5 L832.6 517.2 L815.8 528.1 L794.5 538.7 L774.5 546.0 L765.3 548.5 L751.5 551.2 L743.8 552.0 L737.7 551.7 L734.6 551.0 L732.1 549.1 L731.2 546.4 L732.2 540.9 L730.9 539.7 L729.5 539.9 L709.5 550.3 L692.6 557.8 L671.0 565.6 L652.5 571.0 L637.0 574.6 L612.3 577.9 L603.1 577.8 L598.5 577.0 L595.7 575.3 L593.7 572.0 L592.7 571.7 L588.3 573.2 L578.9 579.2 L563.4 592.5 L551.9 606.7 L543.4 620.9 L536.1 639.5 L532.5 656.7 L530.9 679.8 L531.8 695.8 L534.9 718.8"/>
+            <path d="M582.9 620.9 L586.4 616.6 L591.1 613.0 L598.9 609.2 L605.1 607.3 L623.7 605.3 L640.7 606.5 L663.8 611.1 L687.0 618.8 L694.7 623.2 L697.5 625.6 L700.0 629.9 L700.7 635.6 L699.2 641.4 L696.1 645.7 L691.4 649.0 L686.8 650.2 L682.1 649.9 L646.4 642.3 L629.4 639.8 L609.2 638.5 L590.5 639.3 L584.4 637.5 L580.8 633.8 L580.0 630.9 L580.2 626.6 L582.9 620.9"/>
+            <path d="M771.5 612.8 L775.3 608.7 L783.0 603.1 L807.6 587.6 L833.7 573.8 L852.1 566.4 L858.2 564.7 L865.9 563.7 L873.6 564.7 L881.4 569.3 L885.1 573.6 L887.0 577.8 L887.9 582.0 L887.5 586.3 L885.6 590.4 L883.3 592.5 L878.7 594.5 L864.9 598.7 L846.4 606.5 L826.4 616.6 L790.9 636.2 L786.2 637.3 L781.6 636.9 L776.9 635.1 L772.5 631.3 L769.7 627.0 L768.6 621.3 L769.3 617.0 L771.5 612.8"/>
+            <path d="M582.3 707.7 L594.1 697.2 L606.7 689.5 L622.5 683.4 L636.6 680.5 L652.2 680.5 L667.7 683.7 L678.6 687.7 L688.0 692.8 L693.5 696.7"/>
+            <path d="M801.0 684.4 L811.9 673.8 L824.3 665.3 L838.3 659.2 L853.8 655.6 L870.9 655.2 L883.4 657.3 L895.9 661.4 L911.0 669.6"/>
+            <path d="M728.5 716.8 L729.1 719.1 L731.1 722.0 L736.9 726.6 L744.8 729.4 L752.6 729.7 L760.5 727.6 L766.8 723.8 L770.5 719.5 L773.3 712.9"/>
+            <path d="M672.0 750.5 L679.1 751.8 L687.0 750.8 L712.3 741.9 L720.1 740.0 L729.6 738.8 L743.7 740.1 L757.9 743.9 L773.6 735.0 L786.2 731.3 L800.3 730.0 L828.6 732.2 L836.4 731.1 L843.6 728.2"/>
+            <path d="M626.4 789.4 L626.8 797.3 L629.0 809.3 L634.9 825.7 L640.6 837.8 L645.9 846.8 L653.3 857.4 L660.9 866.5 L673.3 878.6 L687.0 889.2 L693.4 893.2 L704.6 899.1 L715.8 903.7 L723.8 906.3 L739.9 909.9 L752.7 911.1 L762.4 911.2 L776.8 909.7 L791.3 906.6 L802.5 902.7 L810.5 899.1 L820.1 893.6 L829.6 886.7 L846.1 870.5 L852.1 862.9 L859.0 852.3 L864.0 843.3 L870.3 829.7 L878.9 804.2 L881.8 790.8 L883.4 778.9 L883.6 764.1 L882.5 755.8 L880.9 751.3 L877.0 747.1 L872.3 744.3 L867.5 743.0 L861.2 742.5 L848.7 743.7 L785.7 753.4 L738.5 759.8 L645.3 769.4 L637.4 772.2 L631.2 776.5 L627.5 782.4 L626.4 788.7"/>
+            <path d="M627.8 789.5 L641.3 794.6 L655.5 798.2 L677.7 800.7 L704.6 801.8 L722.0 801.2 L745.8 799.4 L791.7 792.9 L831.2 783.8 L848.6 778.4 L858.0 774.8 L870.5 769.0 L882.3 762.0"/>
+            <path d="M683.6 884.5 L683.8 874.5 L685.9 865.4 L689.4 857.9 L695.2 850.3 L701.2 845.1 L707.6 841.1 L717.1 837.5 L726.7 835.7 L734.7 835.9 L744.2 838.1 L750.6 840.7 L760.1 846.2 L763.3 845.1 L772.9 837.7 L779.2 834.7 L785.6 832.8 L798.3 831.7 L809.5 833.9 L815.8 836.4 L822.2 840.2 L831.1 848.8 L834.2 853.3 L837.5 860.9 L839.9 873.8"/>
+            <path d="M716.9 927.7 L720.1 933.2 L726.4 937.7 L732.9 938.8 L742.5 937.7 L750.6 943.3 L757.1 944.8 L763.5 943.2 L769.9 939.5 L771.6 939.5 L779.6 942.6 L784.5 942.1 L787.7 940.2 L793.1 935.2 L801.1 934.8 L805.9 932.8 L809.6 928.6 L811.1 923.1"/>
+          </g>
+          <image class="sv-pena" href="img/servicos/design/caneta.webp" width="384" height="465"/>
+        </svg>
+        <span class="sv-dica">↻ toque para desenhar de novo</span>
+      </div>
       <div>
         <h1>Design gráfico</h1>
         <p>Transformo ideias em peças que comunicam: identidades, flyers, posts e impressos com cor, forma e personalidade. De Maués para cada marca, um design que tem a cara de quem ele representa.</p>
@@ -1247,7 +1295,34 @@ footer small{color:var(--tinta-2);font-size:.85rem}
       <button type="button" data-ir="servicos">Explorar outros serviços ↻</button>
     </nav>
     <div class="sv-card sv-apresenta">
-      <div class="sv-obj-falta">Notebook 3D<br>(imagem estática primeiro; o giro vem depois)</div>
+      <div class="sv-codigo" id="sv-codigo" title="Toque para ver de novo" role="img" aria-label="Notebook com um código sendo digitado e um site se montando ao lado">
+        <svg viewBox="-41 162 1336 958" aria-hidden="true">
+          <defs><clipPath id="sv-tela-nb"><polygon points="129,196.7 1123.5,196.7 1116.4,760.3 137.9,760.1"/></clipPath></defs>
+          <image href="img/servicos/sites/notebook.webp" x="0" y="0" width="1254" height="1254"/>
+          <g clip-path="url(#sv-tela-nb)"><g transform="translate(129 196.7) scale(0.62156)">
+            <rect width="800" height="907" fill="#1F1B17"/>
+            <rect width="800" height="58" fill="#2B241E"/>
+            <circle cx="34" cy="29" r="9" fill="#E82D08"/><circle cx="62" cy="29" r="9" fill="#F4D7A8"/><circle cx="90" cy="29" r="9" fill="#5B993E"/>
+            <text x="130" y="38" class="sv-cod-aba">index.html</text>
+            <g class="sv-cod-linhas"></g>
+            <rect class="sv-cod-cursor" width="15" height="34" fill="#FCE5BF"/>
+            <rect x="800" width="800" height="907" fill="#FFF3DF"/>
+            <rect x="800" width="800" height="58" fill="#F4D7A8"/>
+            <rect x="900" y="15" width="600" height="28" rx="14" fill="#FCE5BF"/>
+            <g class="sv-prev">
+              <g data-l="0"><rect x="800" y="58" width="800" height="96" fill="#E7191F"/><text x="836" y="122" class="sv-p-logo">DIGAS</text>
+                <rect x="1290" y="96" width="70" height="14" rx="7" fill="#FCE5BF"/><rect x="1376" y="96" width="70" height="14" rx="7" fill="#FCE5BF"/><rect x="1462" y="96" width="94" height="14" rx="7" fill="#FCE5BF"/></g>
+              <g data-l="1"><text x="836" y="262" class="sv-p-h1">Olá, eu sou o Diego</text></g>
+              <g data-l="2"><text x="838" y="318" class="sv-p-txt">De Maués para o mundo</text></g>
+              <g data-l="3"><rect x="836" y="350" width="300" height="72" rx="16" fill="#E82D08"/><text x="986" y="396" class="sv-p-btn">Bora conversar</text></g>
+              <g data-l="6"><rect x="836" y="470" width="230" height="250" rx="22" fill="#F4D7A8"/><circle cx="951" cy="560" r="46" fill="#5B993E"/><text x="951" y="676" class="sv-p-card">Fotos</text></g>
+              <g data-l="7"><rect x="1085" y="470" width="230" height="250" rx="22" fill="#F4D7A8"/><circle cx="1200" cy="560" r="46" fill="#E82D08"/><text x="1200" y="676" class="sv-p-card">Vídeos</text></g>
+              <g data-l="8"><rect x="1334" y="470" width="230" height="250" rx="22" fill="#F4D7A8"/><circle cx="1449" cy="560" r="46" fill="#6B3A12"/><text x="1449" y="676" class="sv-p-card">Design</text></g>
+            </g>
+          </g></g>
+        </svg>
+        <span class="sv-dica">↻ toque para ver de novo</span>
+      </div>
       <div>
         <h1>Sites e sistemas</h1>
         <p>Desenvolvo sites, sistemas e apps pensados para o computador e para o celular, com visual próprio e foco em quem vai usar. De Maués para a internet, tecnologia com cara de gente.</p>
@@ -1493,7 +1568,7 @@ footer small{color:var(--tinta-2);font-size:.85rem}
 (function(){
   var mod=document.getElementById('mod-serv'), principal=document.getElementById('inicio'), TITULO=document.title;
   var telas={'servicos':'t-servicos','fotografia':'t-fotografia','fotografia/galeria':'t-galeria','fotografia/servicos':'t-fservicos','audiovisual':'t-audiovisual','audiovisual/videos':'t-videos','audiovisual/servicos':'t-aservicos','design':'t-design','design/trabalhos':'t-design-trab','design/servicos':'t-design-serv','sites':'t-sites','sites/trabalhos':'t-sites-trab','sites/servicos':'t-sites-serv'};
-  var primeira=true, camPronta=false;
+  var primeira=true;
   function topo(){window.scrollTo({top:0,left:0,behavior:'instant'})}
   function rota(){
     var h=decodeURIComponent(location.hash.slice(1));
@@ -1503,7 +1578,7 @@ footer small{color:var(--tinta-2);font-size:.85rem}
       topo();
       var t=document.getElementById(telas[h]), h1=t.querySelector('h1');
       document.title=(h1?h1.textContent:'Serviços')+' · DIGAS';
-      if(h==='fotografia') preparaCam();
+      if(giros[h]) giros[h]();
       if(primeira){primeira=false}else if(h1){h1.tabIndex=-1;h1.focus({preventScroll:true})}
     }else if(!mod.hidden){
       mod.hidden=true; principal.hidden=false; document.title=TITULO;
@@ -1528,20 +1603,122 @@ footer small{color:var(--tinta-2);font-size:.85rem}
   var lb=document.getElementById('sv-lb');
   mod.querySelectorAll('[data-zoom]').forEach(function(im){im.addEventListener('click',function(){var g=lb.querySelector('img');g.src=im.currentSrc||im.src;g.alt=im.alt;lb.showModal()})});
   lb.addEventListener('click',function(e){if(e.target!==lb.querySelector('img'))lb.close()});
-  // câmera 360° (carrega os quadros só quando a tela de Fotografia abre)
-  var img=document.getElementById('sv-cam'), box=document.getElementById('sv-giro');
-  var q=[0,1,2,3,4,5,6,7].map(function(i){return 'img/servicos/cam/0'+i+'.webp'});
-  var at=1, arr=null, reduz=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function vai(i){at=((i%8)+8)%8;img.src=q[at];}
-  function preparaCam(){
-    if(camPronta)return; camPronta=true;
-    q.forEach(function(s){var i=new Image();i.src=s});
-    if(!reduz) setInterval(function(){if(!arr&&!document.hidden&&!mod.hidden&&!document.getElementById('t-fotografia').hidden)vai(at+1)},160);
+  // objetos 360° (câmera e claquete): os quadros só carregam quando a tela abre
+  var reduz=matchMedia('(prefers-reduced-motion: reduce)').matches, giros={};
+  function montaGiro(rotaTela,telaId,boxId,imgId,pasta,tempos){
+    var img=document.getElementById(imgId), box=document.getElementById(boxId), tela=document.getElementById(telaId);
+    var q=[0,1,2,3,4,5,6,7].map(function(i){return 'img/servicos/'+pasta+'/0'+i+'.webp'});
+    var at=1, arr=null, pronto=false;
+    function vai(i){at=((i%8)+8)%8;img.src=q[at];}
+    function passo(){
+      if(!arr&&!document.hidden&&!mod.hidden&&!tela.hidden) vai(at+1);
+      setTimeout(passo,tempos[at]);
+    }
+    function prepara(){
+      if(pronto)return; pronto=true;
+      q.forEach(function(s){var i=new Image();i.src=s});
+      if(!reduz) setTimeout(passo,tempos[at]);
+    }
+    giros[rotaTela]=prepara;
+    box.addEventListener('pointerdown',function(e){prepara();arr={x:e.clientX,i:at};box.classList.add('sv-arrastando');box.setPointerCapture(e.pointerId)});
+    box.addEventListener('pointermove',function(e){if(arr)vai(arr.i-Math.round((e.clientX-arr.x)/30))});
+    function solta(){arr=null;box.classList.remove('sv-arrastando')}
+    box.addEventListener('pointerup',solta);box.addEventListener('pointercancel',solta);
   }
-  box.addEventListener('pointerdown',function(e){preparaCam();arr={x:e.clientX,i:at};box.classList.add('sv-arrastando');box.setPointerCapture(e.pointerId)});
-  box.addEventListener('pointermove',function(e){if(arr)vai(arr.i-Math.round((e.clientX-arr.x)/30))});
-  function solta(){arr=null;box.classList.remove('sv-arrastando')}
-  box.addEventListener('pointerup',solta);box.addEventListener('pointercancel',solta);
+  montaGiro('fotografia','t-fotografia','sv-giro','sv-cam','cam',[160,160,160,160,160,160,160,160]);
+  // claquete: o quadro 01 está a ~25°, então o 00 fica menos tempo e o 02 mais, para o giro ficar regular
+  montaGiro('audiovisual','t-audiovisual','sv-giro-claq','sv-claq','claq',[115,160,205,160,160,160,160,160]);
+
+  // caneta desenhando o rosto na mesa digitalizadora (Design gráfico)
+  (function(){
+    var box=document.getElementById('sv-desenho'); if(!box) return;
+    var tela=document.getElementById('t-design'), g=box.querySelector('.sv-tracos'), pena=box.querySelector('.sv-pena');
+    var tr=[].slice.call(g.querySelectorAll('path')), len=tr.map(function(p){return p.getTotalLength()});
+    var PX=2.65, PY=463.8, REPOUSO={x:1130,y:1078}, VEL=0.85, MOVE=230, FIM=2600;
+    tr.forEach(function(p,i){p.style.strokeDasharray=len[i]+' '+len[i]});
+    // linha do tempo: vai até o início de cada traço (levantada), desenha, ..., volta ao repouso, espera
+    var tl=[], t0=0, ant=REPOUSO;
+    tr.forEach(function(p,i){var a=p.getPointAtLength(0);tl.push({k:'m',de:ant,ate:{x:a.x,y:a.y},t:t0,d:i?MOVE:500});t0+=i?MOVE:500;
+      tl.push({k:'d',i:i,t:t0,d:len[i]/VEL});t0+=len[i]/VEL;var b=p.getPointAtLength(len[i]);ant={x:b.x,y:b.y};});
+    tl.push({k:'m',de:ant,ate:REPOUSO,t:t0,d:600});t0+=600; var TOTAL=t0+FIM;
+    function poe(x,y,lev){pena.setAttribute('transform','translate('+(x-PX).toFixed(1)+' '+(y-PY-lev).toFixed(1)+')')}
+    function ease(u){return u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2}
+    function pinta(t){
+      g.classList.toggle('sv-some',t>TOTAL-500);
+      for(var j=0;j<tl.length;j++){var s=tl[j];
+        if(s.k==='d'){var f=Math.max(0,Math.min(1,(t-s.t)/s.d));tr[s.i].style.strokeDashoffset=(len[s.i]*(1-f)).toFixed(1);tr[s.i].style.visibility=f>0?'visible':'hidden';
+          if(t>=s.t&&t<s.t+s.d){var q=tr[s.i].getPointAtLength(len[s.i]*f);poe(q.x,q.y,0)}}
+        else if(t>=s.t&&t<s.t+s.d){var u=ease((t-s.t)/s.d);poe(s.de.x+(s.ate.x-s.de.x)*u,s.de.y+(s.ate.y-s.de.y)*u,Math.sin(Math.PI*u)*34+(j===0||j===tl.length-1?0:6))}}
+      if(t>=t0) poe(REPOUSO.x,REPOUSO.y,0);
+    }
+    box.pinta=pinta; box.TOTAL=TOTAL;
+    var reduz=matchMedia('(prefers-reduced-motion: reduce)').matches, rel=0, ult=null, rodando=false;
+    function quadro(agora){
+      if(ult===null) ult=agora; var dt=agora-ult; ult=agora;
+      if(!document.hidden&&!mod.hidden&&!tela.hidden){rel=(rel+Math.min(dt,60))%TOTAL; if(rel<20&&g.classList.contains('sv-some'))g.classList.remove('sv-some'); pinta(rel)}
+      requestAnimationFrame(quadro);
+    }
+    pinta(reduz?t0:0);
+    giros['design']=function(){if(rodando||reduz)return;rodando=true;requestAnimationFrame(quadro)};
+    box.tabIndex=0;
+    function denovo(){if(reduz){reduz=false;giros['design']()} rel=0;g.classList.add('sv-some');setTimeout(function(){g.classList.remove('sv-some')},30)}
+    box.addEventListener('click',denovo);
+    box.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();denovo()}});
+  })();
+
+  // notebook: código sendo digitado e o site se montando (Sites e sistemas)
+  (function(){
+    var box=document.getElementById('sv-codigo'); if(!box) return;
+    var tela=document.getElementById('t-sites'), NS='http://www.w3.org/2000/svg';
+    var gl=box.querySelector('.sv-cod-linhas'), cur=box.querySelector('.sv-cod-cursor'), prev=[].slice.call(box.querySelectorAll('.sv-prev>g'));
+    var C={t:'#8FCB6B',a:'#F2B66B',s:'#E8826A',x:'#FCE5BF'};
+    var L=[[['<header ','t'],['class=','a'],['"topo"','s'],['>','t']],
+      [['  <h1>','t'],['Olá, eu sou o Diego','x'],['</h1>','t']],
+      [['  <p>','t'],['De Maués para o mundo','x'],['</p>','t']],
+      [['  <a ','t'],['class=','a'],['"btn"','s'],['>','t'],['Bora conversar','x'],['</a>','t']],
+      [['</header>','t']],
+      [['<section ','t'],['class=','a'],['"cards"','s'],['>','t']],
+      [['  <div>','t'],['Fotos','x'],['</div>','t']],
+      [['  <div>','t'],['Vídeos','x'],['</div>','t']],
+      [['  <div>','t'],['Design','x'],['</div>','t']],
+      [['</section>','t']]];
+    var X0=84, Y0=116, LH=60, CPS=0.042, PAUSA=160, FIM=3200;
+    var linhas=L.map(function(tok,i){
+      var n=document.createElementNS(NS,'text');n.setAttribute('x',30);n.setAttribute('y',Y0+i*LH);n.setAttribute('fill','#6b5a48');n.textContent=String(i+1).padStart(2,' ');gl.appendChild(n);
+      var t=document.createElementNS(NS,'text');t.setAttribute('x',X0);t.setAttribute('y',Y0+i*LH);gl.appendChild(t);
+      return {el:t,tok:tok,len:tok.reduce(function(a,k){return a+k[0].length},0),mostrado:-1};
+    });
+    // largura de um caractere monoespaçado
+    var m=document.createElementNS(NS,'text');m.textContent='MMMMMMMMMM';gl.appendChild(m);var CW=m.getComputedTextLength()/10||18;gl.removeChild(m);
+    var tl=[],t=500;linhas.forEach(function(l){tl.push(t);t+=l.len/CPS+PAUSA});var DIG=t,TOTAL=t+FIM;
+    function escreve(l,n){
+      if(l.mostrado===n)return; l.mostrado=n; while(l.el.firstChild)l.el.removeChild(l.el.firstChild);
+      var r=n; l.tok.forEach(function(k){if(r<=0)return;var sp=document.createElementNS(NS,'tspan');sp.setAttribute('fill',C[k[1]]);sp.textContent=k[0].slice(0,r);r-=k[0].length;l.el.appendChild(sp)});
+    }
+    function pinta(t){
+      box.classList.toggle('sv-limpa',t>TOTAL-550);
+      var cx=X0,cy=Y0;
+      linhas.forEach(function(l,i){var n=Math.max(0,Math.min(l.len,Math.floor((t-tl[i])*CPS)));escreve(l,n);
+        if(t>=tl[i]){cx=X0+n*CW;cy=Y0+i*LH}});
+      prev.forEach(function(g){var i=+g.dataset.l;g.classList.toggle('sv-on',t>=tl[i]+linhas[i].len/CPS)});
+      cur.setAttribute('x',cx+2);cur.setAttribute('y',cy-27);
+      cur.style.opacity=(t>DIG-PAUSA||t<500)?(Math.floor(t/450)%2?0:1):1;
+    }
+    box.pinta=pinta;box.TOTAL=TOTAL;
+    var reduz=matchMedia('(prefers-reduced-motion: reduce)').matches, rel=0, ult=null, rodando=false;
+    function quadro(agora){
+      if(ult===null)ult=agora;var dt=agora-ult;ult=agora;
+      if(!document.hidden&&!mod.hidden&&!tela.hidden){rel=(rel+Math.min(dt,60))%TOTAL;pinta(rel)}
+      requestAnimationFrame(quadro);
+    }
+    pinta(reduz?DIG:0);
+    giros['sites']=function(){if(rodando||reduz)return;rodando=true;requestAnimationFrame(quadro)};
+    box.tabIndex=0;
+    function denovo(){if(reduz){reduz=false;giros['sites']()}rel=0;pinta(0)}
+    box.addEventListener('click',denovo);
+    box.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();denovo()}});
+  })();
+
   rota();
 })();
 </script>
